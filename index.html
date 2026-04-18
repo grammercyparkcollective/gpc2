@@ -127,8 +127,10 @@ LINKS
     background: none;
     border: none;
     cursor: pointer;
-    padding: 8px;
+    padding: 12px;
     z-index: 101;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
   }
 
   .hamburger span {
@@ -583,17 +585,17 @@ LINKS
   
   <div class="nav-right">
     <ul class="nav-links" id="navLinks">
-      <li><a href="#events" onclick="closeMenu()">Events</a></li>
-      <li><a href="#advocacy" onclick="closeMenu()">What We Do</a></li>
-      <li><a href="#vote" onclick="closeMenu()">Vote</a></li>
-      <li><a href="#involved" onclick="closeMenu()">Get Involved</a></li>
-      <li><a href="#resources" onclick="closeMenu()">Resources</a></li>
+      <li><a href="#events">Events</a></li>
+      <li><a href="#advocacy">What We Do</a></li>
+      <li><a href="#vote">Vote</a></li>
+      <li><a href="#involved">Get Involved</a></li>
+      <li><a href="#resources">Resources</a></li>
       <li class="mobile-only" style="list-style:none;"><div id="google_translate_element_mobile"></div></li>
     </ul>
     
     <div id="google_translate_element_desktop"></div>
     
-    <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <button class="hamburger" id="hamburger" aria-label="Menu" type="button">
       <span></span>
       <span></span>
       <span></span>
@@ -882,28 +884,36 @@ LINKS
 </script>
 
 <script>
-  // Hamburger menu toggle
-  function toggleMenu() {
+  // Hamburger menu toggle - iOS compatible
+  document.addEventListener('DOMContentLoaded', function() {
+    const hamburger = document.getElementById('hamburger');
     const navLinks = document.getElementById('navLinks');
-    const hamburger = document.getElementById('hamburger');
-    navLinks.classList.toggle('active');
-    hamburger.classList.toggle('active');
-  }
-  
-  function closeMenu() {
-    const navLinks = document.getElementById('navLinks');
-    const hamburger = document.getElementById('hamburger');
-    navLinks.classList.remove('active');
-    hamburger.classList.remove('active');
-  }
-  
-  // Close menu when clicking outside
-  document.addEventListener('click', function(event) {
-    const nav = document.querySelector('nav');
-    const hamburger = document.getElementById('hamburger');
-    if (!nav.contains(event.target)) {
-      closeMenu();
-    }
+    const menuItems = navLinks.querySelectorAll('a');
+    
+    // Toggle menu
+    hamburger.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      navLinks.classList.toggle('active');
+      hamburger.classList.toggle('active');
+    });
+    
+    // Close menu when clicking a link
+    menuItems.forEach(item => {
+      item.addEventListener('click', function() {
+        navLinks.classList.remove('active');
+        hamburger.classList.remove('active');
+      });
+    });
+    
+    // Close menu when clicking outside
+    document.addEventListener('click', function(event) {
+      const nav = document.querySelector('nav');
+      if (!nav.contains(event.target) && navLinks.classList.contains('active')) {
+        navLinks.classList.remove('active');
+        hamburger.classList.remove('active');
+      }
+    });
   });
 </script>
 
