@@ -119,6 +119,36 @@ LINKS
 
   .nav-links a:hover { background: var(--teal-lt); color: var(--teal); }
 
+  /* Hamburger menu button */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    z-index: 101;
+  }
+
+  .hamburger span {
+    width: 22px;
+    height: 2px;
+    background: var(--teal);
+    border-radius: 2px;
+    transition: all 0.3s;
+  }
+
+  .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+  .hamburger.active span:nth-child(2) { opacity: 0; }
+  .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+  .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
   /* SECTIONS */
   .section {
     padding: 64px var(--pad);
@@ -444,8 +474,47 @@ LINKS
     h1 { font-size: 32px; }
     h2 { font-size: 24px; }
     .resource-grid { grid-template-columns: 1fr 1fr; }
-    .nav-links { display: none; }
     .btn-center .btn { min-width: 0; width: 100%; }
+    
+    /* Show hamburger, hide desktop nav */
+    .hamburger { display: flex; }
+    .nav-links {
+      position: fixed;
+      top: 62px;
+      left: 0;
+      right: 0;
+      background: rgba(253,252,251,0.98);
+      backdrop-filter: blur(12px);
+      flex-direction: column;
+      padding: 12px 0;
+      border-bottom: 1.5px solid var(--rule);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transform: translateY(-100%);
+      opacity: 0;
+      pointer-events: none;
+      transition: transform 0.3s, opacity 0.3s;
+    }
+    
+    .nav-links.active {
+      transform: translateY(0);
+      opacity: 1;
+      pointer-events: all;
+    }
+    
+    .nav-links li { width: 100%; }
+    .nav-links a {
+      display: block;
+      padding: 12px var(--pad);
+      border-radius: 0;
+    }
+    
+    /* Show mobile translate, hide desktop */
+    .mobile-only { display: block; }
+    #google_translate_element_desktop { display: none !important; }
+    #google_translate_element_mobile {
+      padding: 0 var(--pad);
+      margin-top: 8px;
+    }
   }
 
   .reveal { opacity: 0; transform: translateY(12px); transition: opacity 0.5s ease, transform 0.5s ease; }
@@ -464,10 +533,14 @@ LINKS
 
 
   /* GOOGLE TRANSLATE */
-  #google_translate_element {
+  #google_translate_element_desktop,
+  #google_translate_element_mobile {
     display: flex;
     align-items: center;
   }
+  
+  .mobile-only { display: none; }
+  
   .goog-te-gadget {
     font-family: var(--font-b) !important;
     font-size: 13px !important;
@@ -507,16 +580,26 @@ LINKS
 <!-- NAV -->
 <nav>
   <a href="#home" class="nav-logo" style="display:flex;align-items:center;gap:10px;"><img src="image_1.png" alt="GPC logo" style="height:38px;width:38px;object-fit:contain;border-radius:50%;"><span>Grammercy Park <em>Collective</em></span></a>
-  <ul class="nav-links">
-    <li><a href="#events">Events</a></li>
-    <li><a href="#advocacy">What We Do</a></li>
-    <li><a href="#vote">Vote</a></li>
-    <li><a href="#involved">Get Involved</a></li>
-    <li><a href="#resources">Resources</a></li>
-  </ul>
-
-    <div id="google_translate_element"></div>
-  </nav>
+  
+  <div class="nav-right">
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#events" onclick="closeMenu()">Events</a></li>
+      <li><a href="#advocacy" onclick="closeMenu()">What We Do</a></li>
+      <li><a href="#vote" onclick="closeMenu()">Vote</a></li>
+      <li><a href="#involved" onclick="closeMenu()">Get Involved</a></li>
+      <li><a href="#resources" onclick="closeMenu()">Resources</a></li>
+      <li class="mobile-only" style="list-style:none;"><div id="google_translate_element_mobile"></div></li>
+    </ul>
+    
+    <div id="google_translate_element_desktop"></div>
+    
+    <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</nav>
 
 <!-- HERO -->
 <div id="home" class="section" style="background-image:url(image_2.jpeg); background-size:cover; background-position:center center; background-repeat:no-repeat; position:relative;">
@@ -798,14 +881,49 @@ LINKS
   document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 </script>
 
+<script>
+  // Hamburger menu toggle
+  function toggleMenu() {
+    const navLinks = document.getElementById('navLinks');
+    const hamburger = document.getElementById('hamburger');
+    navLinks.classList.toggle('active');
+    hamburger.classList.toggle('active');
+  }
+  
+  function closeMenu() {
+    const navLinks = document.getElementById('navLinks');
+    const hamburger = document.getElementById('hamburger');
+    navLinks.classList.remove('active');
+    hamburger.classList.remove('active');
+  }
+  
+  // Close menu when clicking outside
+  document.addEventListener('click', function(event) {
+    const nav = document.querySelector('nav');
+    const hamburger = document.getElementById('hamburger');
+    if (!nav.contains(event.target)) {
+      closeMenu();
+    }
+  });
+</script>
+
 <script type="text/javascript">
   function googleTranslateElementInit() {
+    // Desktop version
     new google.translate.TranslateElement({
       pageLanguage: 'en',
       includedLanguages: 'es,so,vi,ar,fr,zh-CN,zh-TW,my,om,ti,am',
       layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
       autoDisplay: false
-    }, 'google_translate_element');
+    }, 'google_translate_element_desktop');
+    
+    // Mobile version  
+    new google.translate.TranslateElement({
+      pageLanguage: 'en',
+      includedLanguages: 'es,so,vi,ar,fr,zh-CN,zh-TW,my,om,ti,am',
+      layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+      autoDisplay: false
+    }, 'google_translate_element_mobile');
   }
 </script>
 <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
