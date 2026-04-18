@@ -150,6 +150,12 @@ LINKS
     align-items: center;
     gap: 20px;
   }
+  
+  /* Hide translate in menu on desktop */
+  .translate-item {
+    display: none;
+    list-style: none;
+  }
 
   /* SECTIONS */
   .section {
@@ -481,32 +487,12 @@ LINKS
     /* Show hamburger, hide desktop nav */
     .hamburger { display: flex; }
     
-    /* Move translate inside mobile menu */
-    .nav-right {
-      display: flex;
-      align-items: center;
-    }
-    
-    #google_translate_element {
-      position: fixed;
-      top: 262px; /* Below 5 menu items at ~50px each + 62px nav height */
-      left: 0;
-      right: 0;
-      padding: 12px var(--pad);
-      background: rgba(253,252,251,0.98);
-      backdrop-filter: blur(12px);
-      border-bottom: 1.5px solid var(--rule);
-      transform: translateY(-100%);
-      opacity: 0;
-      pointer-events: none;
-      transition: transform 0.3s, opacity 0.3s;
-      z-index: 99;
-    }
-    
-    .nav-links.active ~ #google_translate_element {
-      transform: translateY(0);
-      opacity: 1;
-      pointer-events: all;
+    /* Show translate inside mobile menu */
+    .translate-item {
+      display: block !important;
+      padding: 8px var(--pad) 12px;
+      border-top: 1px solid var(--rule);
+      margin-top: 8px;
     }
     
     .nav-links {
@@ -561,6 +547,16 @@ LINKS
     align-items: center;
   }
   
+  /* On desktop, position it outside the menu in the nav bar */
+  @media (min-width: 581px) {
+    .nav-right > .nav-links .translate-item {
+      position: absolute;
+      right: 60px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+  
   .goog-te-gadget {
     font-family: var(--font-b) !important;
     font-size: 13px !important;
@@ -608,9 +604,8 @@ LINKS
       <li><a href="#vote">Vote</a></li>
       <li><a href="#involved">Get Involved</a></li>
       <li><a href="#resources">Resources</a></li>
+      <li class="translate-item"><div id="google_translate_element"></div></li>
     </ul>
-    
-    <div id="google_translate_element"></div>
     
     <button class="hamburger" id="hamburger" aria-label="Menu" type="button">
       <span></span>
