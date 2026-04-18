@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grammercy Park Neighborhood Collective | Omaha, NE</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<!--
+╔══════════════════════════════════════════════════════╗
+║              EDIT YOUR CONTENT HERE                  ║
+║  Change only this section. Don't touch anything else.║
+╚══════════════════════════════════════════════════════╝
+
+EVENTS
+  Plant Swap date:      Saturday, May 9 · 2:00–4:00 PM
+  Plant Swap rain date: May 23
+  Yard sale form:       https://forms.gle/t3Q7YPPbwsRm4z3V9
+  Meeting 1:            Wednesday, May 20 · 6:00–6:30 PM
+  Meeting 2:            Wednesday, July 15 · 6:00–6:30 PM
+  Calendar:             https://calendar.google.com/calendar/embed?src=f1e83c5c7991a035067958bf9efad21949246ee82bfb82aeea535d6fda0148ec%40group.calendar.google.com&ctz=America%2FChicago
+
+DESIGN CONTEST (remove section after June 30, 2026)
+  Submit link:          https://forms.gle/1z4vURC88VVbZmQP8
+
+ADVOCACY LINKS (add pill links below the list as needed, remove when expired)
+  No active links right now.
+
+LINKS
+  Join form:    https://forms.gle/4yP6K7LndsK4ZVSj8
+  Email:        grammercyparkcollective@gmail.com
+  Facebook:     https://www.facebook.com/people/Grammercy-Park-Collective/61574691107601/
+  TIF tracker:  https://nebraska.tif.report/douglas/omaha/
+-->
+
+<style>
+  /* ════════════════════════════════════════
+     PALETTE — 3 colors only, used consistently
+     --cream:  page background & card fills
+     --sage:   primary accent, labels, links, borders
+     --orange: one call-to-action button only
+     --ink:    warm dark text (never pure black)
+     ════════════════════════════════════════ */
+  :root {
+    --cream:    #F8F4E8;
+    --cream-dk: #EEF3F0;
+    --box:      #F0EBE0;
+    --box-dk:   #E6DFD0;
+    --teal:     #3a7172;
+    --teal-mid: #4a8b8c;
+    --teal-lt:  #e6efe9;
+    --yellow-bg:#faf6e8;
+    --ink:      #2c2c2c;
+    --muted:    #727272;
+    --rule:     #e2e0da;
+    --font-d:   'DM Serif Display', Georgia, serif;
+    --font-b:   'DM Sans', Arial, sans-serif;
+    --max:      680px;
+    --pad:      clamp(20px, 5vw, 48px);
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font-b);
+    font-size: 18px;
+    line-height: 1.75;
+    color: var(--ink);
+    background: var(--cream);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    height: 62px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 var(--pad);
+    background: rgba(253,252,251,0.97);
+    backdrop-filter: blur(12px);
+    border-bottom: 1.5px solid var(--rule);
+  }
+
+  .nav-logo {
+    font-family: var(--font-d);
+    font-size: 19px;
+    font-weight: 600;
+    color: var(--ink);
+    text-decoration: none;
+  }
+
+  .nav-logo em { font-style: italic; color: var(--teal); }
+
+  .nav-links { display: flex; gap: 2px; list-style: none; }
+
+  .nav-links a {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--muted);
+    text-decoration: none;
+    padding: 6px 11px;
+    border-radius: 5px;
+    transition: background 0.15s, color 0.15s;
+  }
+
+  .nav-links a:hover { background: var(--teal-lt); color: var(--teal); }
+
+  /* SECTIONS */
+  .section {
+    padding: 64px var(--pad);
+    border-bottom: 1.5px solid var(--rule);
+  }
+
+  .section:last-child { border-bottom: none; }
+  .section-alt { background: var(--cream-dk); }
+
+  .inner { max-width: var(--max); margin: 0 auto; }
+
+  /* LABELS */
+  .label {
+    font-family: var(--font-b);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--teal);
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  /* HEADINGS */
+  h1 {
+    font-family: var(--font-d);
+    font-size: clamp(36px, 6vw, 58px);
+    color: var(--ink);
+    line-height: 1.06;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+  }
+
+  h2 {
+    font-family: var(--font-d);
+    font-size: clamp(24px, 3.5vw, 36px);
+    color: var(--ink);
+    line-height: 1.1;
+    margin-bottom: 12px;
+    font-weight: 400;
+  }
+
+  h3 {
+    font-family: var(--font-d);
+    font-size: 21px;
+    color: var(--ink);
+    line-height: 1.2;
+    margin-bottom: 8px;
+    font-weight: 400;
+  }
+
+  p { margin-bottom: 14px; font-size: 17px; color: var(--muted); }
+  p:last-child { margin-bottom: 0; }
+  p.dark { color: var(--ink); }
+  strong { font-weight: 700; color: var(--ink); }
+
+  /* BUTTONS */
+  .btn {
+    display: inline-block;
+    padding: 12px 24px;
+    font-family: var(--font-b);
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 8px;
+    border: 2px solid transparent;
+    transition: all 0.2s;
+    cursor: pointer;
+    text-align: center;
+  }
+
+  .btn-sage    { background: var(--teal-mid); color: #fff; border-color: var(--teal-mid); }
+  .btn-sage:hover { background: var(--teal); border-color: var(--teal); }
+  .btn-ghost   { background: transparent; color: var(--teal); border-color: var(--teal); }
+  .btn-ghost:hover { background: #F5F0E8; }
+  .btn-orange  { background: var(--teal-mid); color: #fff; border-color: var(--teal-mid); }
+  .btn-orange:hover { background: var(--teal); border-color: var(--teal); }
+
+  .btn-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-top: 24px;
+  }
+
+  .btn-center .btn { min-width: 260px; }
+
+  /* HERO */
+  #home {
+    min-height: 100vh;
+    padding-top: 62px;
+    display: flex;
+    align-items: center;
+  }
+
+  .hero-inner {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 40px var(--pad) 60px;
+    text-align: center;
+    width: 100%;
+  }
+
+  .hero-est {
+    font-family: var(--font-d);
+    font-style: italic;
+    font-size: 16px;
+    color: var(--teal);
+    display: block;
+    margin-bottom: 16px;
+  }
+
+  .hero-h1 { margin-bottom: 16px; }
+  .hero-h1 em { font-style: italic; color: var(--teal); }
+
+  .hero-tagline {
+    font-family: var(--font-d);
+    font-style: italic;
+    font-size: 19px;
+    color: var(--ink2, #555);
+    margin: 16px auto 18px;
+    max-width: 440px;
+    line-height: 1.5;
+  }
+
+  .hero-desc {
+    font-size: 17px;
+    color: var(--ink);
+    line-height: 1.8;
+    max-width: 520px;
+    margin: 0 auto;
+  }
+
+  /* EVENT CARDS */
+  .card {
+    border: 1px solid var(--rule);
+    border-radius: 12px;
+    padding: 22px 24px;
+    margin-bottom: 14px;
+    background: var(--box);
+  }
+
+  .card-featured {
+    border-color: var(--teal);
+    background: var(--box);
+  }
+
+  .card-date {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--teal);
+    margin-bottom: 8px;
+    display: block;
+  }
+
+  .card h3 { color: var(--ink); }
+  .card p  { font-size: 16px; color: var(--muted); margin-bottom: 12px; }
+
+  .meeting-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--rule);
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  .meeting-row:last-of-type { border-bottom: none; }
+  .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--teal); flex-shrink: 0; }
+
+  /* ADVOCACY */
+  .adv-list { list-style: none; margin: 16px 0; }
+
+  .adv-list li {
+    font-size: 17px;
+    font-weight: 500;
+    color: var(--ink);
+    padding: 12px 0 12px 26px;
+    position: relative;
+    border-bottom: 1px solid var(--rule);
+    line-height: 1.6;
+  }
+
+  .adv-list li:last-child { border-bottom: none; }
+
+  .adv-list li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--teal);
+    font-weight: 700;
+  }
+
+  .pill-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+
+  .pill {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--teal);
+    border: 1.5px solid var(--teal);
+    padding: 5px 14px;
+    border-radius: 100px;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+
+  .pill:hover { background: var(--teal); color: #fff; }
+
+  /* TIF */
+  .tif-box {
+    border: 1px solid var(--rule);
+    border-radius: 12px;
+    padding: 20px 22px;
+    margin-top: 20px;
+    background: var(--box);
+  }
+
+  .tif-box h4 {
+    font-family: var(--font-d);
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--ink);
+    margin-bottom: 8px;
+  }
+
+  .tif-box p { font-size: 15px; color: var(--muted); margin-bottom: 10px; }
+
+  .tif-stats { display: flex; gap: 20px; margin: 12px 0; flex-wrap: wrap; }
+
+  .tif-stat-item { font-size: 14px; color: var(--muted); }
+  .tif-stat-item strong { font-size: 20px; color: var(--ink); display: block; line-height: 1.2; }
+
+  /* CONTEST */
+  .contest-list {
+    list-style: none;
+    margin: 14px 0;
+    background: var(--box);
+    border: 1px solid var(--rule);
+    border-radius: 12px;
+    padding: 4px 16px;
+  }
+
+  .contest-list li {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--muted);
+    padding: 8px 0 8px 20px;
+    position: relative;
+    border-bottom: 1px solid var(--rule);
+    line-height: 1.6;
+  }
+
+  .contest-list li:last-child { border-bottom: none; }
+
+  .contest-list li::before {
+    content: '·';
+    position: absolute;
+    left: 4px;
+    color: var(--teal);
+    font-size: 20px;
+    line-height: 1.2;
+    font-weight: 700;
+  }
+
+  /* CONNECTOR */
+  .connector-box {
+    border: 1px solid var(--rule);
+    border-radius: 12px;
+    padding: 22px 24px;
+    background: var(--box);
+    margin: 16px 0;
+  }
+
+  .connector-box p { font-size: 17px; color: var(--muted); margin-bottom: 12px; }
+  .connector-box p.lead { color: var(--ink); font-weight: 700; font-size: 18px; }
+
+  /* RESOURCES */
+  .resource-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 8px;
+    margin-top: 16px;
+  }
+
+  .res {
+    background: var(--box);
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    padding: 12px 14px;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    transition: background 0.15s;
+  }
+
+  .res:hover { background: var(--box-dk); }
+  .res-name { font-family: var(--font-d); font-size: 15px; color: var(--ink); font-weight: 400; }
+  .res-desc { font-size: 12px; color: var(--muted); font-weight: 500; line-height: 1.4; }
+  .res-link { font-size: 11px; font-weight: 700; color: var(--teal); margin-top: 2px; }
+
+  /* FOOTER */
+  footer {
+    background: #F5F0E8;
+    padding: 48px var(--pad);
+    border-top: 1.5px solid var(--rule);
+  }
+
+  .footer-inner { max-width: var(--max); margin: 0 auto; }
+  .footer-logo { font-family: var(--font-d); font-style: italic; font-size: 22px; color: var(--ink); display: block; margin-bottom: 6px; }
+  .footer-sub { font-size: 14px; color: var(--muted); margin-bottom: 22px; font-weight: 500; }
+  .footer-links { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 22px; }
+  .footer-links a { font-size: 13px; font-weight: 600; color: var(--muted); text-decoration: none; transition: color 0.15s; }
+  .footer-links a:hover { color: var(--teal); }
+  .footer-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; padding-top: 18px; border-top: 1px solid var(--rule); }
+  .footer-copy { font-size: 12px; color: var(--muted); font-weight: 500; opacity: 0.6; }
+
+  /* RESPONSIVE */
+  @media (max-width: 580px) {
+    h1 { font-size: 32px; }
+    h2 { font-size: 24px; }
+    .resource-grid { grid-template-columns: 1fr 1fr; }
+    .nav-links { display: none; }
+    .btn-center .btn { min-width: 0; width: 100%; }
+  }
+
+  .reveal { opacity: 0; transform: translateY(12px); transition: opacity 0.5s ease, transform 0.5s ease; }
+  .reveal.visible { opacity: 1; transform: none; }
+
+  /* ILLUSTRATIVE SECTION BACKGROUNDS */
+  .illus-bg { position: relative; overflow: hidden; }
+  .illus-bg > * { position: relative; z-index: 1; }
+  .illus-asset {
+    position: absolute;
+    pointer-events: none;
+    mix-blend-mode: multiply;
+    z-index: 0;
+    user-select: none;
+  }
+
+
+  /* GOOGLE TRANSLATE */
+  #google_translate_element {
+    display: flex;
+    align-items: center;
+  }
+  .goog-te-gadget {
+    font-family: var(--font-b) !important;
+    font-size: 13px !important;
+    color: var(--muted) !important;
+  }
+  .goog-te-gadget .goog-te-combo {
+    font-family: var(--font-b);
+    font-size: 13px;
+    color: var(--ink);
+    border: 1.5px solid var(--rule);
+    border-radius: 6px;
+    padding: 4px 8px;
+    background: var(--cream);
+    cursor: pointer;
+  }
+  .goog-te-banner-frame { display: none !important; }
+  body { top: 0 !important; }
+
+
+  .res-section-header {
+    grid-column: 1 / -1;
+    font-family: var(--font-b);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--teal);
+    padding-top: 12px;
+    border-top: 1.5px solid var(--rule);
+    margin-top: 4px;
+  }
+
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#home" class="nav-logo" style="display:flex;align-items:center;gap:10px;"><img src="image_1.png" alt="GPC logo" style="height:38px;width:38px;object-fit:contain;border-radius:50%;"><span>Grammercy Park <em>Collective</em></span></a>
+  <ul class="nav-links">
+    <li><a href="#events">Events</a></li>
+    <li><a href="#advocacy">What We Do</a></li>
+    <li><a href="#involved">Get Involved</a></li>
+    <li><a href="#resources">Resources</a></li>
+  </ul>
+
+    <div id="google_translate_element"></div>
+  </nav>
+
+<!-- HERO -->
+<div id="home" class="section" style="background-image:url(image_2.jpeg); background-size:cover; background-position:center center; background-repeat:no-repeat; position:relative;">
+  <div style="position:absolute;inset:0;background:rgba(248,244,232,0.95);z-index:0;"></div>
+  <div class="hero-inner" style="position:relative;z-index:1;">
+
+
+        <span class="hero-est">Est. 2022 · Omaha, NE</span>
+    <h1 class="hero-h1">Grammercy Park<br><em>Neighborhood</em> Collective</h1>
+    <p class="hero-tagline">No fees, no dues, just solidarity.</p>
+    <p class="hero-desc">We're a group of neighbors working to build a more connected, more engaged community in Omaha. Plant swaps, block parties, clean ups, housing advocacy: we go where the community leads. We primarily serve neighbors between Benson and Dundee, east of Country Club, but anyone is welcome.</p>
+    <p class="hero-desc" style="font-style:italic; margin-top:8px;">What affects one of us affects us all.</p>
+    <div class="btn-center" style="flex-direction:row; justify-content:center; margin-top:28px; flex-wrap:wrap;">
+      <a href="https://forms.gle/4yP6K7LndsK4ZVSj8" target="_blank" class="btn btn-orange">Join the Collective</a>
+      <a href="#events" class="btn btn-ghost">What's Happening</a>
+    </div>
+  </div>
+</div>
+
+<!-- EVENTS -->
+<!-- UPDATE: Add/remove cards. Remove Plant Swap after May 9. Update meetings each season. -->
+<div id="events" class="section section-alt illus-bg"><img class="illus-asset" src="image_3.png" style="opacity:0.08;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center;" aria-hidden="true">
+  <div class="inner reveal">
+    <span class="label">Events &amp; Meetings</span>
+    <h2>What's Coming Up</h2>
+
+    <!-- UPDATE: Remove after May 9 -->
+    <div class="card card-featured">
+      <span class="label">🌱 May 9 — Spring Plant Swap</span>
+      <span class="card-date">Saturday, May 9 · 2:00–4:00 PM · Rain date: May 23</span>
+      <p class="dark">We're partnering with Gina and Omaha Plant Addicts this year! No plants? Take ours! Have extras? Bring them. All plants, seeds, starters, and garden items welcome. <strong>Please label your stuff!</strong> No sales! Bring a table if you have a lot. Leftovers go to Benson Plant Rescue.</p>
+      <div style="margin-top:14px;">
+        <a href="https://forms.gle/4yP6K7LndsK4ZVSj8" target="_blank" class="btn btn-sage" style="font-size:14px;padding:10px 20px;">Sign up for the address →</a>
+      </div>
+    </div>
+
+    <!-- UPDATE: Remove when vote closes -->
+    <div class="card">
+      <span class="label">Vote Open</span>
+      <h3>Community Yard Sales</h3>
+      <p>Last year's was a blast. We're planning a spring/summer date, let us know you're interested!</p>
+      <a href="https://forms.gle/t3Q7YPPbwsRm4z3V9" target="_blank" class="btn btn-sage" style="font-size:14px;padding:10px 20px;">Fill out the interest form →</a>
+    </div>
+
+    <!-- UPDATE: Update dates each season -->
+    <div class="card">
+      <span class="label">Virtual · 30 min</span>
+      <h3>Community Discussions</h3>
+      <p>A quick catch-up: updates, what the community wants and needs. All welcome. Links on our Google Calendar.</p>
+      <div style="margin:12px 0 16px;">
+        <div class="meeting-row"><span class="dot"></span>Wednesday, May 20 · 6:00–6:30 PM</div>
+        <div class="meeting-row"><span class="dot"></span>Wednesday, July 15 · 6:00–6:30 PM</div>
+      </div>
+      <a href="https://calendar.google.com/calendar/embed?src=f1e83c5c7991a035067958bf9efad21949246ee82bfb82aeea535d6fda0148ec%40group.calendar.google.com&ctz=America%2FChicago" target="_blank" class="btn btn-ghost" style="font-size:14px;padding:10px 20px;">📅 Subscribe to GPC Calendar</a>
+    </div>
+
+  </div>
+</div>
+
+<!-- DESIGN CONTEST -->
+<!-- UPDATE: Remove this entire section after June 30, 2026 -->
+<div id="contest" class="section illus-bg"><img class="illus-asset" src="image_4.png" style="opacity:0.20;bottom:5%;right:-4%;width:38%;max-width:340px;" aria-hidden="true">
+  <div class="inner reveal">
+    <span class="label">Open Now · Deadline June 30, 2026</span>
+    <h2>Our First-Ever Design Contest</h2>
+    <p>Our Collective grew out of plant swaps, potlucks, and people who care about their neighbors and the flora and fauna of this neighborhood. We want a design that captures that: something real, handmade-feeling, and alive that could live on a t-shirt and grow into a GPC logo.</p>
+    <p style="font-size:16px; color:var(--ink); font-weight:600; margin-top:4px;">The winning design will:</p>
+    <ul class="contest-list">
+      <li>Be rooted in what makes this community feel like home: diverse people, plants, animals, good neighbors, a sense of place</li>
+      <li>Work in a single color and in full color, and scale from a t-shirt to stickers or other merch</li>
+      <li>Format: JPG, SVG, or PDF · You can enter more than once</li>
+      <li><strong>Prize:</strong> $100 gift card to Blue Line Coffee / Green Line Cafe · Merch printed by PKP Screenprinting</li>
+    </ul>
+    <div style="margin-top:16px;">
+      <a href="https://forms.gle/1z4vURC88VVbZmQP8" target="_blank" class="btn btn-orange">Submit Your Design →</a>
+    </div>
+  </div>
+</div>
+
+<!-- OUR WORK -->
+<!-- UPDATE: Add/remove list items. Add pill links below as needed, remove when expired. -->
+<div id="advocacy" class="section section-alt illus-bg"><img class="illus-asset" src="image_5.png" style="opacity:0.14;bottom:0;left:-4%;width:40%;max-width:420px;" aria-hidden="true">
+  <div class="inner reveal">
+    <span class="label">What We Do</span>
+    <h2>Projects &amp; Advocacy</h2>
+    <p>We work with neighbors and the city on issues that shape everyday life here: everything from broken streetlights to feeding our neighbors and advocating for better policies that govern our community.</p>
+
+    <ul class="adv-list">
+      <li>Block parties, plant swaps, and events that build real community</li>
+      <li>Affordable housing policies and protections for long-term residents</li>
+      <li>Community gardens and shared green spaces</li>
+      <li>TIF development projects in our neighborhood, tracking closely</li>
+    </ul>
+
+    <!-- TIF tracker — compact, no dark section -->
+    <div class="tif-box">
+      <h4>Omaha TIF Tracker</h4>
+      <p>Tax Increment Financing redirects increased property taxes from new development back to developers instead of schools, parks, and public services. An unintended consequence: homeowners near TIF projects often see their own taxes rise:</p>
+      <div class="tif-stats">
+        <div class="tif-stat-item"><strong>$748M</strong>Refunded to developers</div>
+        <div class="tif-stat-item"><strong>$122M</strong>Paid into public financing</div>
+      </div>
+      <div class="pill-row">
+        <a href="https://nebraska.tif.report/douglas/omaha/" target="_blank" class="pill">View Omaha TIF Database →</a>
+        <a href="https://cityclerk.cityofomaha.org/category/city-council-downloads/agendas/2026-agendas/" target="_blank" class="pill">Current City Council Agenda →</a>
+      </div>
+    </div>
+
+    <!-- UPDATE: Add pill links below as needed, remove when expired.
+         Copy a line to add: <a href="#" class="pill">Label</a> -->
+    <div class="pill-row" style="margin-top:16px;">
+      <!-- ADD LINKS HERE -->
+    </div>
+
+  </div>
+</div>
+
+
+<!-- GET INVOLVED — includes Block Connectors -->
+<div id="involved" class="section illus-bg"><img class="illus-asset" src="image_6.png" style="opacity:0.26;bottom:0;right:0;width:46%;max-width:380px;" aria-hidden="true">
+  <div class="inner reveal">
+    <span class="label">Get Involved</span>
+    <h2>Join Us</h2>
+    <p>We're a DIY community group and we need you. Spread the word to your neighbors, pitch in your time or skills, help us grow, show up; we go where the community leads. Every bit counts.</p>
+
+    <div class="connector-box" style="margin-top:24px;">
+      <p class="lead">Become a Block Connector</p>
+      <p>GPC is non-hierarchical: we go where the community leads us. Block Connectors are how we make that real. You'd be our point person on your block: we send you updates, resources, and things worth sharing, and you get them to your neighbors however works best for you. A text thread, a flyer on a door, a conversation over the fence.</p>
+      <p><strong>No meetings required.</strong> Just a neighbor who gives a damn.</p>
+    </div>
+
+    <div style="display:flex; flex-direction:column; align-items:center; gap:10px; margin-top:24px;">
+      <div style="display:flex; gap:10px; flex-wrap:wrap; justify-content:center;">
+        <a href="https://forms.gle/4yP6K7LndsK4ZVSj8" target="_blank" class="btn btn-orange">Join the Collective</a>
+        <a href="https://forms.gle/4yP6K7LndsK4ZVSj8" target="_blank" class="btn btn-sage">Become a Block Connector</a>
+      </div>
+      <div style="display:flex; gap:10px; flex-wrap:wrap; justify-content:center;">
+        <a href="mailto:grammercyparkcollective@gmail.com" class="btn btn-ghost">Email Us</a>
+        <a href="https://www.facebook.com/people/Grammercy-Park-Collective/61574691107601/" target="_blank" class="btn btn-ghost">Facebook</a>
+      </div>
+    </div>
+    <p style="text-align:center; font-style:italic; font-size:15px; margin-top:14px;">Just moved to the neighborhood?<br>Becoming a Block Connector is the fastest way to meet the people on your block.</p>
+  </div>
+</div>
+
+<!-- RESOURCES -->
+<!-- UPDATE: Add/remove resource cards as needed -->
+<div id="resources" class="section section-alt">
+  <div class="inner reveal">
+    <span class="label">Local Contacts &amp; Links</span>
+    <h2>Resources</h2>
+    <p>City services, utilities, and emergency contacts for residents.</p>
+
+    <div class="resource-grid">
+      <div class="res-section-header">City Services &amp; Utilities</div>
+      <a href="https://www.omahahotline.com" target="_blank" class="res">
+        <span class="res-name">Omaha Hotline</span>
+        <span class="res-desc">Report abandoned vehicles, overgrown lots, code violations</span>
+        <span class="res-link">omahahotline.com →</span>
+      </a>
+      <a href="https://citycouncil.cityofomaha.org" target="_blank" class="res">
+        <span class="res-name">City Council &amp; Agendas</span>
+        <span class="res-desc">Find your district rep · Weekly agendas published Fridays · Meetings Tuesdays 2 PM · Anyone can attend</span>
+        <span class="res-link">Current agenda →</span>
+      </a>
+      <a href="https://planninghcd.cityofomaha.org/images/Neighborhood_Planning/2024_Where_To_Call_List_8.pdf" target="_blank" class="res">
+        <span class="res-name">Where To Call Guide</span>
+        <span class="res-desc">2024 Omaha neighborhood services reference: who to call for what</span>
+        <span class="res-link">Download PDF →</span>
+      </a>
+
+      <a href="https://www.wasteline.org" target="_blank" class="res">
+        <span class="res-name">Wasteline</span>
+        <span class="res-desc">Trash schedules, bulk disposal, recycling &amp; composting</span>
+        <span class="res-link">wasteline.org →</span>
+      </a>
+      <a href="https://www.mudomaha.com" target="_blank" class="res">
+        <span class="res-name">Metropolitan Utilities District</span>
+        <span class="res-desc">Water and natural gas service</span>
+        <span class="res-link">mudomaha.com →</span>
+      </a>
+      <a href="https://www.oppd.com" target="_blank" class="res">
+        <span class="res-name">Omaha Public Power</span>
+        <span class="res-desc">Electric service, outage reporting, energy assistance</span>
+        <span class="res-link">oppd.com →</span>
+      </a>
+      <a href="https://omahalibrary.org" target="_blank" class="res">
+        <span class="res-name">Omaha Public Library</span>
+        <span class="res-desc">Libraries, events, seed library, community programs</span>
+        <span class="res-link">omahalibrary.org →</span>
+      </a>
+      <a href="https://www.oneomaha.org" target="_blank" class="res">
+        <span class="res-name">One Omaha</span>
+        <span class="res-desc">An independent neighborhood advocacy organization focused on equity and community voice</span>
+        <span class="res-link">oneomaha.org →</span>
+      </a>
+      <a href="tel:211" class="res">
+        <span class="res-name">211: Food &amp; Social Services</span>
+        <span class="res-desc">Free referrals for food, housing, utilities, health, and more</span>
+        <span class="res-link">Call or text 211 →</span>
+      </a>
+
+
+      <div class="res-section-header">Community Support</div>
+      <a href="https://www.communityalliance.org" target="_blank" class="res">
+        <span class="res-name">Community Alliance</span>
+        <span class="res-desc">Local mental health services, crisis support, and community programs for Omaha residents</span>
+        <span class="res-link">communityalliance.org →</span>
+      </a>
+      <a href="https://www.oneworldomaha.org" target="_blank" class="res">
+        <span class="res-name">OneWorld Community Health</span>
+        <span class="res-desc">Affordable primary care, mental health, dental, and social services, multilingual staff, everyone welcome regardless of insurance or immigration status</span>
+        <span class="res-link">oneworldomaha.org →</span>
+      </a>
+      <a href="https://www.thefreefarm.org" target="_blank" class="res">
+        <span class="res-name">The Free Farm</span>
+        <span class="res-desc">Community-supported agriculture providing free fresh produce to food-insecure families in North Omaha</span>
+        <span class="res-link">thefreefarm.org →</span>
+      </a>
+
+    </div>
+  </div>
+</div>
+
+<!-- CIVIC PARTICIPATION -->
+<div id="vote" class="section">
+  <div class="inner reveal">
+    <span class="label">Civic Participation</span>
+    <h2>Your Vote Matters</h2>
+    <p>Democracy works best when everyone participates. Whether you need to register, find your polling place, or get more involved in local civic life: here's where to start.</p>
+    <div class="resource-grid" style="margin-top:20px;">
+      <a href="https://www.nebraska.gov/apps-sos-voter-registration/" target="_blank" class="res">
+        <span class="res-name">Register to Vote</span>
+        <span class="res-desc">Register, update your address, or check your registration status with the Nebraska Secretary of State</span>
+        <span class="res-link">nebraska.gov →</span>
+      </a>
+      <a href="https://www.votedouglascounty.com/pollingplace.aspx" target="_blank" class="res">
+        <span class="res-name">Find Your Polling Place</span>
+        <span class="res-desc">Look up your polling location and sample ballot, Douglas County Election Commissioner</span>
+        <span class="res-link">votedouglascounty.com →</span>
+      </a>
+      <a href="https://www.lwvgo.org" target="_blank" class="res">
+        <span class="res-name">League of Women Voters, Greater Omaha</span>
+        <span class="res-desc">Nonpartisan voter education, registration drives, candidate forums, and civic advocacy for the Omaha metro</span>
+        <span class="res-link">lwvgo.org →</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer style="position:relative;overflow:hidden;"><img class="illus-asset" src="image_7.png" style="opacity:0.28;bottom:-8%;right:-1%;width:32%;max-width:300px;" aria-hidden="true">
+  <div class="footer-inner">
+    <span class="footer-logo">Grammercy Park Collective</span>
+    <p class="footer-sub">A neighborhood collective in Omaha, NE</p>
+    <div class="footer-links">
+      <a href="#events">Events</a>
+      <a href="#contest">Design Contest</a>
+      <a href="#advocacy">What We Do</a>
+      <a href="#vote">Vote</a>
+      <a href="#involved">Get Involved</a>
+      <a href="#resources">Resources</a>
+      <a href="mailto:grammercyparkcollective@gmail.com">Email</a>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2022–2026 Grammercy Park Neighborhood Collective · Omaha, NE</span>
+      <span class="footer-copy" style="display:block;margin-top:6px;font-size:12px;color:var(--muted);">Thanks to Dario</span>
+      <a href="https://www.facebook.com/people/Grammercy-Park-Collective/61574691107601/" target="_blank" style="font-size:13px;font-weight:600;color:var(--muted);text-decoration:none;transition:color 0.15s;" onmouseover="this.style.color='#3a7172'" onmouseout="this.style.color='#727272'">Facebook</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+
+<script type="text/javascript">
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+      pageLanguage: 'en',
+      includedLanguages: 'es,so,vi,ar,fr,zh-CN,zh-TW,my,om,ti,am',
+      layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+      autoDisplay: false
+    }, 'google_translate_element');
+  }
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+</body>
+</html>
