@@ -23,9 +23,12 @@
 
 EVENTS
   Yard sale form:       https://forms.gle/t3Q7YPPbwsRm4z3V9
-  Meeting 1:            Wednesday, May 20 · 6:00–6:30 PM
-  Meeting 2:            Wednesday, July 15 · 6:00–6:30 PM
+  Meeting 1:            Wednesday, July 15 · 6:00–6:30 PM
+  Meeting 2:            Wednesday, September 16 · 6:00–6:30 PM
   Calendar:             https://calendar.google.com/calendar/embed?src=f1e83c5c7991a035067958bf9efad21949246ee82bfb82aeea535d6fda0148ec%40group.calendar.google.com&ctz=America%2FChicago
+
+ANNOUNCEMENT BANNER (remove when enough have signed up)
+  Text thread signup:   https://form.typeform.com/to/jsUypF1v
 
 DESIGN CONTEST (remove section after June 30, 2026)
   Submit link:          https://forms.gle/1z4vURC88VVbZmQP8
@@ -42,11 +45,12 @@ LINKS
 
 <style>
   /* ════════════════════════════════════════
-     PALETTE — 3 colors only, used consistently
-     --cream:  page background & card fills
-     --sage:   primary accent, labels, links, borders
-     --orange: one call-to-action button only
+     PALETTE
+     --cream / --cream-dk / --box: page & card fills
+     --teal:   primary accent, labels, links, borders
      --ink:    warm dark text (never pure black)
+     Banner uses a deep teal-blue (#1f4654)
+     Brain Food section uses a warm parchment (#e8e2c5)
      ════════════════════════════════════════ */
   :root {
     --cream:    #F8F4E8;
@@ -56,7 +60,6 @@ LINKS
     --teal:     #3a7172;
     --teal-mid: #4a8b8c;
     --teal-lt:  #e6efe9;
-    --yellow-bg:#faf6e8;
     --ink:      #2c2c2c;
     --muted:    #727272;
     --rule:     #e2e0da;
@@ -64,6 +67,7 @@ LINKS
     --font-b:   'DM Sans', Arial, sans-serif;
     --max:      680px;
     --pad:      clamp(20px, 5vw, 48px);
+    --banner-h: 44px;
   }
 
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -77,6 +81,76 @@ LINKS
     background: var(--cream);
     -webkit-font-smoothing: antialiased;
   }
+
+  /* ANNOUNCEMENT BANNER */
+  .banner {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 110;
+    height: var(--banner-h);
+    background: #1f4654;
+    color: #fff;
+    display: flex;
+    align-items: center;
+  }
+
+  .banner.hidden { display: none; }
+
+  .banner-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 var(--pad);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .banner-text {
+    flex: 1;
+    font-size: 14px;
+    font-weight: 500;
+    color: #fff;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .banner-text strong { color: #fff; font-weight: 700; }
+
+  .banner-cta {
+    background: rgba(255,255,255,0.18);
+    color: #fff;
+    text-decoration: none;
+    padding: 5px 12px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    white-space: nowrap;
+    transition: background 0.15s;
+  }
+
+  .banner-cta:hover { background: rgba(255,255,255,0.32); }
+
+  .banner-close {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 18px;
+    line-height: 1;
+    cursor: pointer;
+    padding: 4px 6px;
+    opacity: 0.75;
+    transition: opacity 0.15s;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .banner-close:hover { opacity: 1; }
+
+  /* When banner is showing, push everything down */
+  body.has-banner nav { top: var(--banner-h); }
+  body.has-banner #home { padding-top: calc(62px + var(--banner-h)); }
 
   /* NAV */
   nav {
@@ -219,8 +293,6 @@ LINKS
   .btn-sage:hover { background: var(--teal); border-color: var(--teal); }
   .btn-ghost   { background: transparent; color: var(--teal); border-color: var(--teal); }
   .btn-ghost:hover { background: #F5F0E8; }
-  .btn-orange  { background: var(--teal-mid); color: #fff; border-color: var(--teal-mid); }
-  .btn-orange:hover { background: var(--teal); border-color: var(--teal); }
 
   .btn-center {
     display: flex;
@@ -466,10 +538,25 @@ LINKS
 
   /* RESPONSIVE */
   @media (max-width: 580px) {
+    :root { --banner-h: 56px; }
+
+    .banner-text { font-size: 12.5px; white-space: normal; line-height: 1.3; }
+    .banner-new { display: none; }
+    .banner-inner { gap: 8px; }
+    .banner-cta { padding: 5px 10px; font-size: 12px; }
+
+    body.has-banner .nav-links { top: calc(110px + var(--banner-h)); }
+
     h1 { font-size: 32px; }
     h2 { font-size: 24px; }
     .resource-grid { grid-template-columns: 1fr 1fr; }
     .btn-center .btn { min-width: 0; width: 100%; }
+
+    .brain-grid { grid-template-columns: 1fr; gap: 12px; }
+    .brain-card { padding: 20px 22px; }
+    .brain-card-featured { padding: 24px 26px; }
+    .brain-card-featured .brain-title { font-size: 23px; }
+    .brain-title { font-size: 18px; }
     
     /* Show hamburger */
     .hamburger { display: flex; order: 3; }
@@ -571,9 +658,127 @@ LINKS
     margin-top: 4px;
   }
 
+  /* BRAIN FOOD */
+  #brain-food { background: #e8e2c5; }
+
+  .brain-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-top: 24px;
+  }
+
+  .brain-card {
+    background: var(--cream);
+    border: 1px solid var(--rule);
+    border-radius: 12px;
+    padding: 22px 24px;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    transition: background 0.18s, border-color 0.18s, transform 0.18s, box-shadow 0.18s;
+    position: relative;
+  }
+
+  .brain-card:hover {
+    border-color: var(--teal);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(58,87,120,0.08);
+  }
+
+  .brain-card-featured {
+    grid-column: 1 / -1;
+    background: var(--cream);
+    padding: 30px 32px;
+    border-color: var(--teal);
+    border-width: 1.5px;
+  }
+
+  .brain-featured-label {
+    display: inline-block;
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #fff;
+    background: var(--teal);
+    padding: 4px 11px;
+    border-radius: 4px;
+    margin-bottom: 8px;
+    align-self: flex-start;
+  }
+
+  .brain-topic {
+    font-family: var(--font-d);
+    font-style: italic;
+    font-size: 13.5px;
+    color: var(--teal);
+    margin-bottom: 2px;
+  }
+
+  .brain-source {
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .brain-title {
+    font-family: var(--font-d);
+    font-size: 20px;
+    color: var(--ink);
+    line-height: 1.25;
+    font-weight: 400;
+    margin-top: 3px;
+  }
+
+  .brain-card-featured .brain-title {
+    font-size: 28px;
+    line-height: 1.15;
+  }
+
+  .brain-desc {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.55;
+    margin-top: 4px;
+  }
+
+  .brain-card-featured .brain-desc {
+    font-size: 15.5px;
+    margin-top: 8px;
+  }
+
+  .brain-arrow {
+    font-size: 13px;
+    color: var(--teal);
+    font-weight: 600;
+    margin-top: 10px;
+    transition: transform 0.18s;
+    display: inline-block;
+  }
+
+  .brain-card:hover .brain-arrow { transform: translateX(4px); }
+
 </style>
 </head>
-<body>
+<body class="has-banner">
+
+<!-- ANNOUNCEMENT BANNER -->
+<!-- UPDATE: To remove this banner, delete this whole block AND remove
+     class="has-banner" from the <body> tag above. To change the message
+     or link, edit the text/href below. If you want previously-dismissed
+     visitors to see a NEW banner, change 'banner-v1' in the script at
+     the bottom to 'banner-v2' (or any new name). -->
+<div id="banner" class="banner">
+  <div class="banner-inner">
+    <span class="banner-text">💬 <strong class="banner-new">New: </strong>Join our neighborhood text thread or GroupMe</span>
+    <a href="https://form.typeform.com/to/jsUypF1v" target="_blank" class="banner-cta">Sign up →</a>
+    <button class="banner-close" id="bannerClose" aria-label="Dismiss" type="button">✕</button>
+  </div>
+</div>
 
 <!-- NAV -->
 <nav>
@@ -584,6 +789,7 @@ LINKS
     <li><a href="#advocacy">What We Do</a></li>
     <li><a href="#vote">Vote</a></li>
     <li><a href="#involved">Get Involved</a></li>
+    <li><a href="#brain-food">Brain Food</a></li>
     <li><a href="#resources">Resources</a></li>
   </ul>
   
@@ -608,7 +814,7 @@ LINKS
     <p class="hero-desc">We're a group of neighbors working to build a more connected, more engaged community in Omaha. Plant swaps, block parties, clean ups, housing advocacy: we go where the community leads. We primarily serve neighbors between Benson and Dundee, east of Country Club, but anyone is welcome.</p>
     <p class="hero-desc" style="font-style:italic; margin-top:8px;">What affects one of us affects us all.</p>
     <div class="btn-center" style="flex-direction:row; justify-content:center; margin-top:28px; flex-wrap:wrap;">
-      <a href="https://forms.gle/4yP6K7LndsK4ZVSj8" target="_blank" class="btn btn-orange">Join the Collective</a>
+      <a href="https://forms.gle/4yP6K7LndsK4ZVSj8" target="_blank" class="btn btn-sage">Join the Collective</a>
       <a href="#events" class="btn btn-ghost">What's Happening</a>
     </div>
   </div>
@@ -635,8 +841,8 @@ LINKS
       <h3>Community Discussions</h3>
       <p>A quick catch-up: updates, what the community wants and needs. All welcome. Links on our Google Calendar.</p>
       <div style="margin:12px 0 16px;">
-        <div class="meeting-row"><span class="dot"></span>Wednesday, May 20 · 6:00–6:30 PM</div>
         <div class="meeting-row"><span class="dot"></span>Wednesday, July 15 · 6:00–6:30 PM</div>
+        <div class="meeting-row"><span class="dot"></span>Wednesday, September 16 · 6:00–6:30 PM</div>
       </div>
       <a href="https://calendar.google.com/calendar/embed?src=f1e83c5c7991a035067958bf9efad21949246ee82bfb82aeea535d6fda0148ec%40group.calendar.google.com&ctz=America%2FChicago" target="_blank" class="btn btn-ghost" style="font-size:14px;padding:10px 20px;">📅 Subscribe to GPC Calendar</a>
     </div>
@@ -659,7 +865,7 @@ LINKS
       <li><strong>Prize:</strong> $100 gift card to Blue Line Coffee / Green Line Cafe · Merch printed by PKP Screenprinting</li>
     </ul>
     <div style="margin-top:16px;">
-      <a href="https://forms.gle/1z4vURC88VVbZmQP8" target="_blank" class="btn btn-orange">Submit Your Design →</a>
+      <a href="https://forms.gle/1z4vURC88VVbZmQP8" target="_blank" class="btn btn-sage">Submit Your Design →</a>
     </div>
   </div>
 </div>
@@ -727,7 +933,7 @@ LINKS
 
     <div style="display:flex; flex-direction:column; align-items:center; gap:10px; margin-top:24px;">
       <div style="display:flex; gap:10px; flex-wrap:wrap; justify-content:center;">
-        <a href="https://forms.gle/4yP6K7LndsK4ZVSj8" target="_blank" class="btn btn-orange">Join the Collective</a>
+        <a href="https://forms.gle/4yP6K7LndsK4ZVSj8" target="_blank" class="btn btn-sage">Join the Collective</a>
         <a href="https://forms.gle/KcztTNUd6TcVkyr6A" target="_blank" class="btn btn-sage">Become a Block Connector</a>
       </div>
       <div style="display:flex; gap:10px; flex-wrap:wrap; justify-content:center;">
@@ -736,6 +942,77 @@ LINKS
       </div>
     </div>
     <p style="text-align:center; font-style:italic; font-size:15px; margin-top:14px;">Just moved to the neighborhood?<br>Becoming a Block Connector is the fastest way to meet the people on your block.</p>
+  </div>
+</div>
+
+<!-- BRAIN FOOD -->
+<!-- UPDATE: Add article cards inside the .brain-grid below.
+
+     STRUCTURE:
+     - The FIRST card has both classes: "brain-card brain-card-featured"
+       It also has a <span class="brain-featured-label">Start here</span> at the top.
+       This makes it span the full width as a "magazine cover" card.
+     - All other cards use only class="brain-card" and sit in a 2-column grid.
+
+     TEMPLATE for a regular card:
+     <a href="ARTICLE_URL" target="_blank" class="brain-card">
+       <span class="brain-topic">On [theme]</span>
+       <span class="brain-source">SOURCE · YEAR</span>
+       <span class="brain-title">Article Title</span>
+       <span class="brain-desc">One sentence on why it's worth reading.</span>
+       <span class="brain-arrow">Read →</span>
+     </a>
+-->
+<div id="brain-food" class="section">
+  <div class="inner reveal">
+    <span class="label">Brain Food</span>
+    <h2>Worth a Read</h2>
+    <p>Articles, essays, and ideas that have shaped how we think about neighborhoods, mutual aid, and what it means to show up for each other. Got something to share? <a href="mailto:gramercyparkoma@gmail.com?subject=Brain%20Food%20suggestion" style="color:var(--teal); font-weight:600;">Send it our way.</a></p>
+
+    <div class="brain-grid">
+
+      <a href="https://www.vox.com/the-highlight/486133/what-is-neighborism?view_token=eyJhbGciOiJIUzI1NiJ9.eyJpZCI6InpBdVA2SjhuaEUiLCJwIjoiL3RoZS1oaWdobGlnaHQvNDg2MTMzL3doYXQtaXMtbmVpZ2hib3Jpc20iLCJleHAiOjE3ODAyMjA1ODQsImlhdCI6MTc3OTAxMDk4NH0.VeYRh_ewTbCM391u9USLwwTCcR-sWkUMuvxQ2fVkt40&amp;utm_medium=gift-link" target="_blank" class="brain-card brain-card-featured">
+        <span class="brain-featured-label">Start here</span>
+        <span class="brain-topic">On neighborism</span>
+        <span class="brain-source">Vox · The Highlight · 2026</span>
+        <span class="brain-title">Why "neighborism" is having a moment</span>
+        <span class="brain-desc">Sara Radin on how everyday care between neighbors is becoming a quiet form of resistance — proximity as a resource, small acts of care as the foundation of resilient communities.</span>
+        <span class="brain-arrow">Read →</span>
+      </a>
+
+      <a href="https://thehappyurbanist.substack.com/p/community-is-easy-actually" target="_blank" class="brain-card">
+        <span class="brain-topic">On belonging</span>
+        <span class="brain-source">The Happy Urbanist · 2025</span>
+        <span class="brain-title">Community is easy, actually</span>
+        <span class="brain-desc">Jon Jon Wesolowski makes the case that real community is convenient, not effortful — and that what feels like the cost of belonging is really the cost of the broken infrastructure around us.</span>
+        <span class="brain-arrow">Read →</span>
+      </a>
+
+      <a href="https://www.joanwestenberg.com/communities-are-not-fungible/" target="_blank" class="brain-card">
+        <span class="brain-topic">On displacement</span>
+        <span class="brain-source">Westenberg · 2026</span>
+        <span class="brain-title">Communities are not fungible</span>
+        <span class="brain-desc">JA Westenberg on why displaced communities can't be rebuilt elsewhere — and the cost we ignore when planners and platforms treat people as interchangeable.</span>
+        <span class="brain-arrow">Read →</span>
+      </a>
+
+      <a href="https://thehappyurbanist.substack.com/p/we-need-pirates-philosophers-and" target="_blank" class="brain-card">
+        <span class="brain-topic">On showing up</span>
+        <span class="brain-source">The Happy Urbanist · 2026</span>
+        <span class="brain-title">We need Pirates, Philosophers, and Prophets</span>
+        <span class="brain-desc">Every movement needs three kinds of people: those who name what's wrong, those who question the rules, and those who quietly build the future without waiting for permission.</span>
+        <span class="brain-arrow">Read →</span>
+      </a>
+
+      <a href="https://www.nclm.org/news-media/southern-city/defending-civic-trust-the-responsibility-of-local-leadership/" target="_blank" class="brain-card">
+        <span class="brain-topic">On civic life</span>
+        <span class="brain-source">Southern City (NCLM) · 2025</span>
+        <span class="brain-title">Defending civic trust</span>
+        <span class="brain-desc">A practical case for transparent, two-way civic engagement — and why frustration and disagreement are signals to listen for, not threats to manage.</span>
+        <span class="brain-arrow">Read →</span>
+      </a>
+
+    </div>
   </div>
 </div>
 
@@ -855,6 +1132,7 @@ LINKS
       <a href="#advocacy">What We Do</a>
       <a href="#vote">Vote</a>
       <a href="#involved">Get Involved</a>
+      <a href="#brain-food">Brain Food</a>
       <a href="#resources">Resources</a>
       <a href="mailto:gramercyparkoma@gmail.com">Email</a>
     </div>
@@ -920,6 +1198,30 @@ LINKS
   }
 </script>
 <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<script>
+  // ANNOUNCEMENT BANNER — dismiss + remember
+  // To re-show banner after changes: bump the key from 'banner-v1' to 'banner-v2', etc.
+  (function() {
+    var BANNER_KEY = 'banner-v1';
+    var banner = document.getElementById('banner');
+    var closeBtn = document.getElementById('bannerClose');
+    if (!banner || !closeBtn) return;
+
+    try {
+      if (localStorage.getItem(BANNER_KEY) === 'dismissed') {
+        banner.classList.add('hidden');
+        document.body.classList.remove('has-banner');
+      }
+    } catch (e) { /* localStorage blocked — banner just stays visible */ }
+
+    closeBtn.addEventListener('click', function() {
+      banner.classList.add('hidden');
+      document.body.classList.remove('has-banner');
+      try { localStorage.setItem(BANNER_KEY, 'dismissed'); } catch (e) {}
+    });
+  })();
+</script>
 
 </body>
 </html>
