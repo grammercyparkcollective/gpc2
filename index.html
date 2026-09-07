@@ -8,8 +8,8 @@
 <!-- Social Media Preview / Open Graph Meta Tags -->
 <meta property="og:title" content="Grammercy Park Neighborhood Collective">
 <meta property="og:description" content="A neighborhood collective in Omaha, NE. Plant swaps, block parties, housing advocacy - we go where the community leads. No fees, no dues, just solidarity.">
-<meta property="og:image" content="https://grammercyparkcollective.github.io/gpc2/hero-preview.png">
-<meta property="og:url" content="https://grammercyparkcollective.github.io/gpc2/">
+<meta property="og:image" content="https://www.grammercyparkcollective.org/hero-preview.png">
+<meta property="og:url" content="https://www.grammercyparkcollective.org/">
 <meta property="og:type" content="website">
 <meta name="description" content="A neighborhood collective in Omaha, NE. Plant swaps, block parties, housing advocacy - we go where the community leads.">
 
@@ -22,24 +22,50 @@
 ╚══════════════════════════════════════════════════════╝
 
 EVENTS
-  Yard sale form:       https://forms.gle/t3Q7YPPbwsRm4z3V9
-  Meeting:              Wednesday, September 16 · 6:00–6:30 PM
-  Calendar:             https://calendar.google.com/calendar/embed?src=f1e83c5c7991a035067958bf9efad21949246ee82bfb82aeea535d6fda0148ec%40group.calendar.google.com&ctz=America%2FChicago
+  Yard sale (Sept 11-13):   https://forms.gle/jyCK3T2BpLALCVn29
+  City Fall Cleanup (Oct 17, Waypoint Church, 1313 N 48th Ave, drop-off 9-2, volunteers 8:30-2:30)
+      Volunteer form:       none yet - button falls back to email. Search "SWAP:" to replace.
+      What's accepted:      https://www.wasteline.org/general-information/fall-cleanup/
+  Fall Fest Block Party (tentative: Sat Oct 24, rain date Sun Oct 25)
+      Planning form:        none yet - button falls back to email. Search "SWAP:" to replace.
+  Meeting:                  Wednesday, September 16 · 6:00-6:30 PM
+  Calendar:                 https://calendar.google.com/calendar/embed?src=f1e83c5c7991a035067958bf9efad21949246ee82bfb82aeea535d6fda0148ec%40group.calendar.google.com&ctz=America%2FChicago
+
+FLYER LANDING PAGE (QR code destination on the mailed flyer)
+  Lives at:                 /flyer/  -> https://www.grammercyparkcollective.org/flyer/
+  Keep its links in sync with the event links above.
 
 ANNOUNCEMENT BANNER (remove when enough have signed up)
-  Text thread signup:   https://form.typeform.com/to/jsUypF1v
+  Text thread signup:       https://form.typeform.com/to/jsUypF1v
 
-DESIGN CONTEST (remove section after June 30, 2026)
-  Submit link:          https://forms.gle/1z4vURC88VVbZmQP8
+SURVEY
+  Community listening:      https://forms.gle/NuDUXKExipPefgir9
 
 ADVOCACY LINKS (add pill links below the list as needed, remove when expired)
   No active links right now.
 
+COMING LATER (website rebuild)
+  Support us:   currently routed to email. Swap in a real payment link when
+                there is one (search: subject=Supporting). Label the button
+                "Support Us", never "Donate".
+  Merch link:   not live yet. When it exists, put it beside the support
+                paragraph in the Join Us section, not as a separate CTA.
+
 LINKS
   Join form:    https://forms.gle/4yP6K7LndsK4ZVSj8
+  Connector:    https://forms.gle/KcztTNUd6TcVkyr6A
+                (RETIRED Sept 2026 - no longer linked from the site. The main Join
+                 form already asks about Block Connectors, so this was collecting
+                 duplicate signups in a second spreadsheet. Check it for any names
+                 that never made it into the main sheet.)
   Email:        gramercyparkoma@gmail.com
   Facebook:     https://www.facebook.com/people/Grammercy-Park-Collective/61574691107601/
   TIF tracker:  https://nebraska.tif.report/douglas/omaha/
+
+REMOVED SEPT 2026
+  - "Summer Neighborhood Hangouts" card (season over)
+  - T-shirt design contest section (entries closed, past its June 30 removal date)
+  - Old yard sale interest form (https://forms.gle/t3Q7YPPbwsRm4z3V9) - superseded
 -->
 
 <style>
@@ -53,14 +79,14 @@ LINKS
      ════════════════════════════════════════ */
   :root {
     --cream:    #F8F4E8;
-    --cream-dk: #EEF3F0;
+    --cream-dk: #FCFAF3;
     --box:      #F0EBE0;
     --box-dk:   #E6DFD0;
     --teal:     #3a7172;
     --teal-mid: #4a8b8c;
     --teal-lt:  #e6efe9;
     --ink:      #2c2c2c;
-    --muted:    #727272;
+    --muted:    #4A4A4A;
     --rule:     #e2e0da;
     --font-d:   'DM Serif Display', Georgia, serif;
     --font-b:   Helvetica, Arial, sans-serif;
@@ -74,8 +100,8 @@ LINKS
 
   body {
     font-family: var(--font-b);
-    font-size: 18px;
-    line-height: 1.75;
+    font-size: 16px;
+    line-height: 1.55;
     color: var(--ink);
     background: var(--cream);
     -webkit-font-smoothing: antialiased;
@@ -107,7 +133,7 @@ LINKS
 
   .banner-text {
     flex: 1;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 500;
     color: #fff;
     min-width: 0;
@@ -136,7 +162,7 @@ LINKS
     background: none;
     border: none;
     color: #fff;
-    font-size: 18px;
+    font-size: 17px;
     line-height: 1;
     cursor: pointer;
     padding: 4px 6px;
@@ -231,13 +257,12 @@ LINKS
   /* LABELS */
   .label {
     font-family: var(--font-b);
-    font-size: 11px;
+    font-size: 14px;
     font-weight: 700;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
+    letter-spacing: 0;
     color: var(--teal);
     display: block;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
   }
 
   /* HEADINGS */
@@ -261,14 +286,14 @@ LINKS
 
   h3 {
     font-family: var(--font-d);
-    font-size: 21px;
+    font-size: 19px;
     color: var(--ink);
     line-height: 1.2;
     margin-bottom: 8px;
     font-weight: 400;
   }
 
-  p { margin-bottom: 14px; font-size: 17px; color: var(--muted); }
+  p { margin-bottom: 14px; font-size: 16px; color: var(--muted); }
   p:last-child { margin-bottom: 0; }
   p.dark { color: var(--ink); }
   strong { font-weight: 700; color: var(--ink); }
@@ -278,7 +303,7 @@ LINKS
     display: inline-block;
     padding: 12px 24px;
     font-family: var(--font-b);
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 600;
     text-decoration: none;
     border-radius: 8px;
@@ -292,6 +317,15 @@ LINKS
   .btn-sage:hover { background: var(--teal); border-color: var(--teal); }
   .btn-ghost   { background: transparent; color: var(--teal); border-color: var(--teal); }
   .btn-ghost:hover { background: #F5F0E8; }
+
+  /* size + spacing utilities, so markup doesn't carry inline styles */
+  .btn-sm      { font-size: 14px; padding: 10px 20px; }
+  .stack       { margin-top: 16px; }
+  .stack-lg    { margin-top: 24px; }
+  .link-teal   { color: var(--teal); font-weight: 600; }
+  .link-muted  { font-size: 13px; font-weight: 600; color: var(--muted); text-decoration: none; transition: color 0.15s; }
+  .link-muted:hover { color: var(--teal); }
+  .center-note { text-align: center; margin-top: 22px; font-size: 14px; }
 
   .btn-center {
     display: flex;
@@ -322,7 +356,7 @@ LINKS
   .hero-est {
     font-family: var(--font-d);
     font-style: italic;
-    font-size: 16px;
+    font-size: 17px;
     color: var(--teal);
     display: block;
     margin-bottom: 16px;
@@ -342,9 +376,9 @@ LINKS
   }
 
   .hero-desc {
-    font-size: 17px;
+    font-size: 16px;
     color: var(--ink);
-    line-height: 1.8;
+    line-height: 1.6;
     max-width: 520px;
     margin: 0 auto;
   }
@@ -363,16 +397,8 @@ LINKS
     background: var(--box);
   }
 
-  .card-date {
-    font-size: 14px;
-    font-weight: 700;
-    color: var(--teal);
-    margin-bottom: 8px;
-    display: block;
-  }
-
   .card h3 { color: var(--ink); }
-  .card p  { font-size: 16px; color: var(--muted); margin-bottom: 12px; }
+  .card p  { font-size: 16px; color: var(--muted); margin-bottom: 14px; }
 
   .meeting-row {
     display: flex;
@@ -392,13 +418,13 @@ LINKS
   .adv-list { list-style: none; margin: 16px 0; }
 
   .adv-list li {
-    font-size: 17px;
+    font-size: 16px;
     font-weight: 500;
     color: var(--ink);
     padding: 12px 0 12px 26px;
     position: relative;
     border-bottom: 1px solid var(--rule);
-    line-height: 1.6;
+    line-height: 1.5;
   }
 
   .adv-list li:last-child { border-bottom: none; }
@@ -412,6 +438,7 @@ LINKS
   }
 
   .pill-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+  .pill-row-tight { margin-bottom: 14px; }
 
   .pill {
     font-size: 13px;
@@ -430,57 +457,35 @@ LINKS
   .tif-box {
     border: 1px solid var(--rule);
     border-radius: 12px;
-    padding: 20px 22px;
+    padding: 22px 24px;
     margin-top: 20px;
     background: var(--box);
   }
 
   .tif-box h4 {
-    font-family: var(--font-d);
-    font-size: 18px;
-    font-weight: 400;
+    font-family: var(--font-b);
+    font-size: 17px;
+    font-weight: 700;
     color: var(--ink);
     margin-bottom: 8px;
   }
 
-  .tif-box p { font-size: 15px; color: var(--muted); margin-bottom: 10px; }
+  .tif-box p { font-size: 16px; color: var(--muted); margin-bottom: 10px; }
 
-  .tif-stats { display: flex; gap: 20px; margin: 12px 0; flex-wrap: wrap; }
+  .tif-stats { display: flex; gap: 20px; margin: 14px 0; flex-wrap: wrap; }
 
-  .tif-stat-item { font-size: 14px; color: var(--muted); }
-  .tif-stat-item strong { font-size: 20px; color: var(--ink); display: block; line-height: 1.2; }
+  .tif-stat-item { font-size: 13px; color: var(--muted); }
+  .tif-stat-item strong { font-size: 19px; color: var(--ink); display: block; line-height: 1.2; }
 
-  /* CONTEST */
-  .contest-list {
-    list-style: none;
-    margin: 14px 0;
-    background: var(--box);
-    border: 1px solid var(--rule);
-    border-radius: 12px;
-    padding: 4px 16px;
+  /* ADVOCACY BOX PAIR: side by side on desktop, stacked on mobile */
+  .adv-boxes {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-top: 20px;
+    align-items: start;
   }
-
-  .contest-list li {
-    font-size: 16px;
-    font-weight: 500;
-    color: var(--muted);
-    padding: 8px 0 8px 20px;
-    position: relative;
-    border-bottom: 1px solid var(--rule);
-    line-height: 1.6;
-  }
-
-  .contest-list li:last-child { border-bottom: none; }
-
-  .contest-list li::before {
-    content: '·';
-    position: absolute;
-    left: 4px;
-    color: var(--teal);
-    font-size: 20px;
-    line-height: 1.2;
-    font-weight: 700;
-  }
+  .adv-boxes > * { margin: 0 !important; }
 
   /* CONNECTOR */
   .connector-box {
@@ -491,8 +496,14 @@ LINKS
     margin: 16px 0;
   }
 
-  .connector-box p { font-size: 17px; color: var(--muted); margin-bottom: 12px; }
-  .connector-box p.lead { color: var(--ink); font-weight: 700; font-size: 18px; }
+  .connector-box p { font-size: 16px; color: var(--muted); margin-bottom: 12px; }
+  .connector-box p.lead {
+    font-family: var(--font-b);
+    font-weight: 700;
+    font-size: 17px;
+    color: var(--ink);
+    line-height: 1.3;
+  }
 
   /* RESOURCES */
   .resource-grid {
@@ -515,20 +526,22 @@ LINKS
   }
 
   .res:hover { background: var(--box-dk); }
-  .res-name { font-family: var(--font-d); font-size: 15px; color: var(--ink); font-weight: 400; }
+  .res-name { font-family: var(--font-b); font-size: 14px; font-weight: 700; color: var(--ink); font-weight: 400; }
   .res-desc { font-size: 12px; color: var(--muted); font-weight: 500; line-height: 1.4; }
-  .res-link { font-size: 11px; font-weight: 700; color: var(--teal); margin-top: 2px; }
+  .res-link { font-size: 12px; font-weight: 700; color: var(--teal); margin-top: 2px; }
 
   /* FOOTER */
   footer {
-    background: #F5F0E8;
+    background: #EFE8D9;
     padding: 48px var(--pad);
-    border-top: 1.5px solid var(--rule);
+    border-top: 1.5px solid #D9D1BE;
+    --muted: #635D52;      /* darker text so it still passes contrast on the deeper fill */
+    --rule:  #D9D1BE;      /* rules need to darken with the background or they vanish */
   }
 
   .footer-inner { max-width: var(--max); margin: 0 auto; }
-  .footer-logo { font-family: var(--font-d); font-style: italic; font-size: 22px; color: var(--ink); display: block; margin-bottom: 6px; }
-  .footer-sub { font-size: 14px; color: var(--muted); margin-bottom: 22px; font-weight: 500; }
+  .footer-logo { font-family: var(--font-d); font-style: italic; font-size: 19px; color: var(--ink); display: block; margin-bottom: 6px; }
+  .footer-sub { font-size: 13px; color: var(--muted); margin-bottom: 22px; font-weight: 500; }
   .footer-links { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 22px; }
   .footer-links a { font-size: 13px; font-weight: 600; color: var(--muted); text-decoration: none; transition: color 0.15s; }
   .footer-links a:hover { color: var(--teal); }
@@ -539,23 +552,24 @@ LINKS
   @media (max-width: 580px) {
     :root { --banner-h: 56px; }
 
-    .banner-text { font-size: 12.5px; white-space: normal; line-height: 1.3; }
+    .banner-text { font-size: 13px; white-space: normal; line-height: 1.3; }
     .banner-new { display: none; }
     .banner-inner { gap: 8px; }
-    .banner-cta { padding: 5px 10px; font-size: 12px; }
+    .banner-cta { padding: 5px 10px; font-size: 13px; }
 
     body.has-banner .nav-links { top: calc(110px + var(--banner-h)); }
 
     h1 { font-size: 32px; }
     h2 { font-size: 24px; }
     .resource-grid { grid-template-columns: 1fr 1fr; }
+    .adv-boxes { grid-template-columns: 1fr; }
     .btn-center .btn { min-width: 0; width: 100%; }
 
     .brain-grid { grid-template-columns: 1fr; gap: 12px; }
     .brain-card { padding: 20px 22px; }
     .brain-card-featured { padding: 24px 26px; }
-    .brain-card-featured .brain-title { font-size: 23px; }
-    .brain-title { font-size: 18px; }
+    .brain-card-featured .brain-title { font-size: 24px; }
+    .brain-title { font-size: 19px; }
     
     /* Show hamburger */
     .hamburger { display: flex; order: 3; }
@@ -647,18 +661,21 @@ LINKS
   .res-section-header {
     grid-column: 1 / -1;
     font-family: var(--font-b);
-    font-size: 11px;
+    font-size: 14px;
     font-weight: 700;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
+    letter-spacing: 0;
     color: var(--teal);
-    padding-top: 12px;
+    padding-top: 14px;
     border-top: 1.5px solid var(--rule);
     margin-top: 4px;
   }
 
-  /* BRAIN FOOD */
-  #brain-food { background: #e8e2c5; }
+  /* BRAIN FOOD: dark reading panel */
+  #brain-food { background: #24413F; border-bottom-color: #24413F; }
+  #brain-food h2 { color: #F3EFE4; }
+  #brain-food .label { color: #9EC8BE; }
+  #brain-food > .inner > p { color: #BBCDC8; }
+  #brain-food > .inner > p a { color: #9EC8BE !important; }
 
   .brain-grid {
     display: grid;
@@ -696,10 +713,9 @@ LINKS
 
   .brain-featured-label {
     display: inline-block;
-    font-size: 10.5px;
+    font-size: 13px;
     font-weight: 700;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
+    letter-spacing: 0;
     color: #fff;
     background: var(--teal);
     padding: 4px 11px;
@@ -711,22 +727,21 @@ LINKS
   .brain-topic {
     font-family: var(--font-d);
     font-style: italic;
-    font-size: 13.5px;
+    font-size: 13px;
     color: var(--teal);
     margin-bottom: 2px;
   }
 
   .brain-source {
-    font-size: 10.5px;
-    font-weight: 700;
-    letter-spacing: 0.10em;
-    text-transform: uppercase;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0;
     color: var(--muted);
   }
 
   .brain-title {
     font-family: var(--font-d);
-    font-size: 20px;
+    font-size: 19px;
     color: var(--ink);
     line-height: 1.25;
     font-weight: 400;
@@ -746,7 +761,7 @@ LINKS
   }
 
   .brain-card-featured .brain-desc {
-    font-size: 15.5px;
+    font-size: 15px;
     margin-top: 8px;
   }
 
@@ -769,15 +784,44 @@ LINKS
 <!-- UPDATE: To remove this banner, delete this whole block AND remove
      class="has-banner" from the <body> tag above. To change the message
      or link, edit the text/href below. If you want previously-dismissed
-     visitors to see a NEW banner, change 'banner-v1' in the script at
-     the bottom to 'banner-v2' (or any new name). -->
+     visitors to see a NEW banner, change 'banner-v2' in the script at
+     the bottom to 'banner-v3' (or any new name). -->
+<!-- BANNER ROTATION
+     The banner should carry whatever has the nearest deadline. To rotate:
+       1. Comment out the active block below, uncomment the next one.
+       2. Bump BANNER_KEY at the bottom of the file (banner-v2 -> banner-v3),
+          or people who dismissed the last banner will never see the new one.
+     Swap dates: yard sale runs until Sept 13. Cleanup until Oct 17. -->
+
+<!-- ACTIVE: yard sale (retire after September 13) -->
 <div id="banner" class="banner">
   <div class="banner-inner">
-    <span class="banner-text">💬 <strong class="banner-new">New: </strong>Join our neighborhood text thread or GroupMe</span>
-    <a href="https://form.typeform.com/to/jsUypF1v" target="_blank" class="banner-cta">Sign up →</a>
+    <span class="banner-text">🏷️ <strong class="banner-new">Sept 11 to 13: </strong>Neighborhood yard sales. Sign up to sell.</span>
+    <a href="https://forms.gle/jyCK3T2BpLALCVn29" target="_blank" rel="noopener noreferrer" class="banner-cta">Sign up →</a>
     <button class="banner-close" id="bannerClose" aria-label="Dismiss" type="button">✕</button>
   </div>
 </div>
+
+<!-- NEXT UP: city cleanup. Uncomment on September 14, and swap the href
+     for the volunteer form once you have one.
+<div id="banner" class="banner">
+  <div class="banner-inner">
+    <span class="banner-text">🧤 <strong class="banner-new">Oct 17: </strong>City Fall Cleanup. We need volunteers.</span>
+    <a href="mailto:gramercyparkoma@gmail.com?subject=Volunteering%20at%20the%20Fall%20Cleanup" class="banner-cta">Volunteer →</a>
+    <button class="banner-close" id="bannerClose" aria-label="Dismiss" type="button">✕</button>
+  </div>
+</div>
+-->
+
+<!-- AFTER THAT: back to the text thread, which grows the list for next time.
+<div id="banner" class="banner">
+  <div class="banner-inner">
+    <span class="banner-text">💬 <strong class="banner-new">New: </strong>Join our neighborhood text thread or GroupMe</span>
+    <a href="https://form.typeform.com/to/jsUypF1v" target="_blank" rel="noopener noreferrer" class="banner-cta">Sign up →</a>
+    <button class="banner-close" id="bannerClose" aria-label="Dismiss" type="button">✕</button>
+  </div>
+</div>
+-->
 
 <!-- NAV -->
 <nav>
@@ -813,33 +857,50 @@ LINKS
     <p class="hero-desc">We're a group of neighbors working to build a more connected, more engaged community in Omaha. Plant swaps, block parties, clean ups, housing advocacy: we go where the community leads. We primarily serve neighbors in Grammercy Park, located between Benson and Dundee (east of Country Club), but anyone is welcome.</p>
     <p class="hero-desc" style="font-style:italic; margin-top:8px;">What affects one, affects all.</p>
     <div class="btn-center" style="flex-direction:row; justify-content:center; margin-top:28px; flex-wrap:wrap;">
-      <a href="https://forms.gle/4yP6K7LndsK4ZVSj8" target="_blank" class="btn btn-sage">Join the Collective</a>
+      <a href="https://forms.gle/4yP6K7LndsK4ZVSj8" target="_blank" rel="noopener noreferrer" class="btn btn-sage">Join the Collective</a>
       <a href="#events" class="btn btn-ghost">What's Happening</a>
     </div>
   </div>
 </div>
 
 <!-- EVENTS -->
-<!-- UPDATE: Add/remove cards. Update meetings each season. -->
-<div id="events" class="section section-alt illus-bg"><img class="illus-asset" src="image_3.png" style="opacity:0.08;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center;" aria-hidden="true">
+<!-- UPDATE: Add/remove cards. Update meetings each season.
+     Keep these in sync with the flyer landing page at /flyer/index.html -->
+<div id="events" class="section section-alt illus-bg"><img class="illus-asset" src="image_3.png" style="opacity:0.08;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center;" alt="" aria-hidden="true">
   <div class="inner reveal">
     <span class="label">Events &amp; Meetings</span>
     <h2>What's Coming Up</h2>
 
-    <!-- UPDATE: Add summer hangout details when finalized -->
+    <!-- UPDATE: Remove after September 13 -->
     <div class="card card-featured">
-      <span class="label">In Person · All Summer</span>
-      <h3>Summer Neighborhood Hangouts</h3>
-      <p>We're hosting casual monthly get-togethers in the neighborhood all summer long! No agenda, just neighbors hanging. Details for each one will go out via our text thread and calendar. Sign up below so you don't miss one.</p>
-      <a href="https://form.typeform.com/to/jsUypF1v" target="_blank" class="btn btn-sage" style="font-size:14px;padding:10px 20px;">Get notified →</a>
+      <span class="label">In Person · September 11 to 13</span>
+      <h3>Community Yard Sales</h3>
+      <p class="dark">A multi-house sale across the whole neighborhood, Friday through Sunday. Doors open at 9:00 AM each day, though individual houses set their own hours and some wrap up early. Selling? Sign up so we know who's taking part and can help get the word out.</p>
+      <a href="https://forms.gle/jyCK3T2BpLALCVn29" target="_blank" rel="noopener noreferrer" class="btn btn-sage btn-sm">Add my house to the sale →</a>
     </div>
 
-    <!-- UPDATE: Remove when vote closes -->
+    <!-- UPDATE: Remove after October 17 -->
     <div class="card card-featured">
-      <span class="label">Vote Open</span>
-      <h3>Community Yard Sales</h3>
-      <p class="dark">Last year's was a blast! We're planning to do it again - let us know you're interested!</p>
-      <a href="https://forms.gle/t3Q7YPPbwsRm4z3V9" target="_blank" class="btn btn-sage" style="font-size:14px;padding:10px 20px;">Fill out the interest form →</a>
+      <span class="label">In Person · Saturday, October 17</span>
+      <h3>City Fall Cleanup</h3>
+      <p class="dark">The City's Fall Cleanup comes to our neighborhood on Saturday, October 17, from 9:00 am to 2:00 pm. Bring the oversized things that don't fit in your cart: furniture, appliances, carpet, lumber. It's free and open to any City of Omaha household.</p>
+      <p>We're working on hosting the site at Waypoint Church, 1313 N 48th Ave. That isn't confirmed yet, so check back here and we'll post the location the moment we have it.</p>
+      <p>Wherever it lands, we'll need volunteers from 8:30 am to 2:30 pm. Gloves, safety vests, water and snacks are provided, and you're welcome for the whole day or an hour of it. Sign up now and we'll send you the details once the site is set.</p>
+      <div class="pill-row pill-row-tight">
+        <a href="https://www.wasteline.org/general-information/fall-cleanup/" target="_blank" rel="noopener noreferrer" class="pill">See what's accepted →</a>
+      </div>
+      <!-- SWAP: replace the mailto below with the volunteer form URL when it exists -->
+      <a href="mailto:gramercyparkoma@gmail.com?subject=Volunteering%20at%20the%20Fall%20Cleanup" class="btn btn-sage btn-sm">Email us to volunteer →</a>
+    </div>
+
+    <!-- UPDATE: Add the real date here once it's picked -->
+    <div class="card">
+      <span class="label">In Person · Saturday, October 24</span>
+      <h3>Fall Fest Block Party</h3>
+      <p>Our annual block party is back. We're holding Saturday, October 24, with Sunday the 25th as the rain date. Both are still tentative while we sort out the details, so watch this page before you make plans around it.</p>
+      <p>Tell us what you'd like to pitch in on, whether that's setup, food, music or getting the word out, and we'll be in touch.</p>
+      <!-- SWAP: replace the mailto below with the planning form URL when it exists -->
+      <a href="mailto:gramercyparkoma@gmail.com?subject=Helping%20plan%20Fall%20Fest" class="btn btn-sage btn-sm">Email us to help plan →</a>
     </div>
 
     <!-- UPDATE: Update dates each season -->
@@ -848,40 +909,44 @@ LINKS
       <h3>Community Discussions</h3>
       <p>A quick catch-up - updates and listening to what the community wants and needs. All welcome. Links on our Google Calendar.</p>
       <div style="margin:12px 0 16px;">
-        <div class="meeting-row"><span class="dot"></span>Wednesday, September 16 · 6:00–6:30 PM</div>
+        <div class="meeting-row"><span class="dot"></span>Wednesday, September 16 · 6:00 to 6:30 pm</div>
       </div>
-      <a href="https://calendar.google.com/calendar/embed?src=f1e83c5c7991a035067958bf9efad21949246ee82bfb82aeea535d6fda0148ec%40group.calendar.google.com&ctz=America%2FChicago" target="_blank" class="btn btn-ghost" style="font-size:14px;padding:10px 20px;">📅 Subscribe to GPC Calendar</a>
+      <a href="https://calendar.google.com/calendar/embed?src=f1e83c5c7991a035067958bf9efad21949246ee82bfb82aeea535d6fda0148ec%40group.calendar.google.com&ctz=America%2FChicago" target="_blank" rel="noopener noreferrer" class="btn btn-ghost btn-sm">📅 Subscribe to GPC Calendar</a>
     </div>
 
   </div>
 </div>
 
-<!-- DESIGN CONTEST -->
-<!-- UPDATE: Remove this section once a winner is chosen -->
-<div id="contest" class="section illus-bg"><img class="illus-asset" src="image_4.png" style="opacity:0.20;bottom:5%;right:-4%;width:38%;max-width:340px;" aria-hidden="true">
-  <div class="inner reveal">
-    <span class="label">Entries Closed</span>
-    <h2>T-Shirt Design Contest</h2>
-    <p>Entries for our first design contest are now closed! Thank you to everyone who submitted. More coming soon! The winning designer wins $100 to spend with our friends at Green Line Cafe / Blue Line Coffee.</p>
-  </div>
-</div>
-
 <!-- OUR WORK -->
 <!-- UPDATE: Add/remove list items. Add pill links below as needed, remove when expired. -->
-<div id="advocacy" class="section section-alt illus-bg"><img class="illus-asset" src="image_5.png" style="opacity:0.14;bottom:0;left:-4%;width:40%;max-width:420px;" aria-hidden="true">
+<div id="advocacy" class="section illus-bg"><img class="illus-asset" src="image_5.png" style="opacity:0.14;bottom:0;left:-4%;width:40%;max-width:420px;" alt="" aria-hidden="true">
   <div class="inner reveal">
     <span class="label">What We Do</span>
     <h2>Projects &amp; Advocacy</h2>
-    <p>We work with neighbors and the city on issues that shape everyday life here: everything from broken streetlights to feeding our neighbors (and community cats), and advocating for better policies that govern our community.</p>
+    <p>We work with neighbors and the city on issues that shape everyday life here: everything from broken streetlights to feeding our neighbors (and community cats), supporting the small businesses that make this a place worth living, and advocating for better policies that govern our community.</p>
 
     <ul class="adv-list">
       <li>Block parties, plant swaps, and events that build real community</li>
+      <li>Showing up for the local businesses that anchor the neighborhood</li>
       <li>Affordable housing policies and protections for long-term residents</li>
       <li>Community gardens and shared green spaces</li>
       <li>We're tracking TIF development projects in our neighborhood closely</li>
     </ul>
 
-    <!-- TIF tracker — compact, no dark section -->
+    <p class="stack">A few of the places that make this neighborhood what it is: Global Foods, Green Line Cafe, Simpson's Brakes, Innovative Roofing, Sgt. Peffer's, the Homy Inn, and PKP Screenprinting. Spend your money here when you can.</p>
+
+    <div class="adv-boxes">
+
+    <!-- Email us about projects in our area -->
+    <div class="connector-box">
+      <p class="lead">Curious about a project on your block?</p>
+      <p>New developments, construction, and road closures are reshaping the neighborhood, and it isn't always obvious what's planned or who to ask. That's something we can help with. Get in touch and we'll share what we've found, point you toward the right person at the city, and keep you posted as things move.</p>
+      <div class="stack">
+        <a href="mailto:gramercyparkoma@gmail.com?subject=Project%20in%20our%20area" class="btn btn-sage btn-sm">Email Us About a Project →</a>
+      </div>
+    </div>
+
+    <!-- TIF tracker -->
     <div class="tif-box">
       <h4>Omaha TIF Tracker</h4>
       <p>Tax Increment Financing refunds increased property taxes from new development back to developers instead of to schools, parks, and public services. An unintended consequence: homeowners near TIF projects often see their own taxes rise and are gentrified out of our own neighborhoods.</p>
@@ -890,56 +955,58 @@ LINKS
         <div class="tif-stat-item"><strong>$122M</strong>Paid into public financing</div>
       </div>
       <div class="pill-row">
-        <a href="https://nebraska.tif.report/douglas/omaha/" target="_blank" class="pill">View Omaha TIF Database →</a>
-        <a href="https://cityclerk.cityofomaha.org/category/city-council-downloads/agendas/2026-agendas/" target="_blank" class="pill">Current City Council Agenda →</a>
+        <a href="https://nebraska.tif.report/douglas/omaha/" target="_blank" rel="noopener noreferrer" class="pill">View Omaha TIF Database →</a>
+        <a href="https://cityclerk.cityofomaha.org/category/city-council-downloads/agendas/2026-agendas/" target="_blank" rel="noopener noreferrer" class="pill">Current City Council Agenda →</a>
       </div>
     </div>
 
-    <!-- Email us about projects in our area -->
-    <div class="connector-box" style="margin-top:20px;">
-      <p class="lead">Upset about a project in our area?</p>
-      <p>New developments, construction, and road closures are reshaping our neighborhood, often without much notice. If you're frustrated, confused about who to call, or just need help making sense of what's happening on your block, reach out. We'll listen, share what we know, and help you navigate.</p>
-      <div style="margin-top:14px;">
-        <a href="mailto:gramercyparkoma@gmail.com?subject=Project%20in%20our%20area" class="btn btn-sage" style="font-size:14px;padding:10px 20px;">Email Us About a Project →</a>
-      </div>
-    </div>
+    </div><!-- /.adv-boxes -->
 
-    <!-- UPDATE: Add pill links below as needed, remove when expired.
-         Copy a line to add: <a href="#" class="pill">Label</a> -->
-    <div class="pill-row" style="margin-top:16px;">
-      <!-- ADD LINKS HERE -->
-    </div>
+    <!-- UPDATE: Add pill links here as needed, remove when expired.
+         Copy a line to add: <a href="#" class="pill">Label</a>
+    <div class="pill-row" style="margin-top:16px;"></div> -->
 
   </div>
 </div>
 
 
-<!-- GET INVOLVED — includes Block Connectors -->
-<div id="involved" class="section illus-bg"><img class="illus-asset" src="image_6.png" style="opacity:0.26;bottom:0;right:0;width:46%;max-width:380px;" aria-hidden="true">
+<!-- GET INVOLVED: includes Block Connectors -->
+<div id="involved" class="section section-alt illus-bg"><img class="illus-asset" src="image_6.png" style="opacity:0.26;bottom:0;right:0;width:46%;max-width:380px;" alt="" aria-hidden="true">
   <div class="inner reveal">
     <span class="label">Get Involved</span>
     <h2>Join Us</h2>
-    <p>We're a DIY community group and we need you! Spread the word to your neighbors, pitch in your time or skills, show up, help us grow a stronger, more engaged community.</p>
+    <p><strong>No fees. No dues. No membership to buy.</strong> What we do runs on neighbors giving a few hours when they can. Spread the word on your block, pitch in a skill, or just show up.</p>
 
-    <div class="connector-box" style="margin-top:24px;">
-      <p class="lead">Become a Block Connector</p>
-      <p>GPC is non-hierarchical: we go where the community leads us. Block Connectors are how we make that real. You'd be our point person on your block: we send you updates, resources, and things worth sharing, and you get them to your neighbors however works best for you. A text thread, a flyer on a door, a conversation over the fence.</p>
-      <p><strong>No meetings required.</strong> Just a neighbor who gives a damn.</p>
-    </div>
+    <p>If you'd rather support us with money than hours, that's welcome too, and it's always free will, pay what you want. It covers the real costs of doing this: printing flyers, supplies for events, mailing things to people who aren't online. Nothing we do is ever gated behind giving, and plenty of the people who show up the most have never given a cent. <a href="mailto:gramercyparkoma@gmail.com?subject=Supporting%20the%20Collective" class="link-teal">Get in touch</a> if you'd like to chip in.</p>
 
-    <div style="display:flex; flex-direction:column; align-items:center; gap:10px; margin-top:24px;">
-      <div style="display:flex; gap:10px; flex-wrap:wrap; justify-content:center;">
-        <a href="https://forms.gle/4yP6K7LndsK4ZVSj8" target="_blank" class="btn btn-sage">Join the Collective</a>
-        <a href="https://forms.gle/KcztTNUd6TcVkyr6A" target="_blank" class="btn btn-sage">Become a Block Connector</a>
-      </div>
-      <div style="display:flex; gap:10px; flex-wrap:wrap; justify-content:center;">
-        <a href="mailto:gramercyparkoma@gmail.com" class="btn btn-ghost">Email Us</a>
-        <a href="https://www.facebook.com/people/Grammercy-Park-Collective/61574691107601/" target="_blank" class="btn btn-ghost">Facebook</a>
+    <div class="connector-box stack-lg">
+      <p class="lead">One form, and you're in</p>
+      <p>It takes a couple of minutes and asks how you'd like to hear from us. It's also where you tell us if you want to be a Block Connector, help plan events, or join our email newsletter.</p>
+      <div class="stack">
+        <a href="https://forms.gle/4yP6K7LndsK4ZVSj8" target="_blank" rel="noopener noreferrer" class="btn btn-sage">Join the Collective →</a>
       </div>
     </div>
-    <p style="text-align:center; font-style:italic; font-size:15px; margin-top:14px;">Just moved to the neighborhood?<br>Becoming a Block Connector is the fastest way to meet the people on your block.</p>
+
+    <div class="connector-box stack">
+      <p class="lead">What a Block Connector does</p>
+      <p>GPC is non-hierarchical: we go where the community leads us. Block Connectors are how we make that real. You'd be our point person on your block. We send you updates, resources, and things worth sharing, and you get them to your neighbors however works best for you. A text thread, a flyer on a door, a conversation over the fence.</p>
+      <p><strong>No meetings required.</strong> Just a neighbor who gives a damn. Say yes to it on the form above.</p>
+      <p style="font-style:italic; margin-top:10px;">Just moved here? It's the fastest way to meet the people on your block.</p>
+    </div>
+
+    <!-- UPDATE: Remove or swap when the survey closes -->
+    <div class="connector-box stack">
+      <p class="lead">Not ready to join? Tell us what you think instead</p>
+      <p>Our community feedback survey asks what's working on your block, what you'd change, and what you'd say to the Mayor if you had the chance. Responses are anonymous. We ask for an email only to keep out spam, and it's never attached to your answers or shared. Set aside ten minutes or so; there's a lot of room to write.</p>
+      <div class="stack">
+        <a href="https://forms.gle/NuDUXKExipPefgir9" target="_blank" rel="noopener noreferrer" class="btn btn-ghost btn-sm">Take the Survey →</a>
+      </div>
+    </div>
+
+    <p class="center-note">Questions first? <a href="mailto:gramercyparkoma@gmail.com" class="link-teal">Email us</a> or find us on <a href="https://www.facebook.com/people/Grammercy-Park-Collective/61574691107601/" target="_blank" rel="noopener noreferrer" class="link-teal">Facebook</a>.</p>
   </div>
 </div>
+
 
 <!-- BRAIN FOOD -->
 <!-- UPDATE: Add article cards inside the .brain-grid below.
@@ -951,7 +1018,7 @@ LINKS
      - All other cards use only class="brain-card" and sit in a 2-column grid.
 
      TEMPLATE for a regular card:
-     <a href="ARTICLE_URL" target="_blank" class="brain-card">
+     <a href="ARTICLE_URL" target="_blank" rel="noopener noreferrer" class="brain-card">
        <span class="brain-topic">On [theme]</span>
        <span class="brain-source">SOURCE · YEAR</span>
        <span class="brain-title">Article Title</span>
@@ -963,36 +1030,36 @@ LINKS
   <div class="inner reveal">
     <span class="label">Brain Food</span>
     <h2>Worth a Read</h2>
-    <p>Articles, essays, and ideas that have shaped how we think about neighborhoods, mutual aid, and what it means to show up for each other. Got something to share? <a href="mailto:gramercyparkoma@gmail.com?subject=Brain%20Food%20suggestion" style="color:var(--teal); font-weight:600;">Send it our way.</a></p>
+    <p>Articles, essays, and ideas that have shaped how we think about neighborhoods, mutual aid, and what it means to show up for each other. Got something to share? <a href="mailto:gramercyparkoma@gmail.com?subject=Brain%20Food%20suggestion" class="link-teal">Send it our way.</a></p>
 
     <div class="brain-grid">
 
-      <a href="https://www.vox.com/the-highlight/486133/what-is-neighborism?view_token=eyJhbGciOiJIUzI1NiJ9.eyJpZCI6InpBdVA2SjhuaEUiLCJwIjoiL3RoZS1oaWdobGlnaHQvNDg2MTMzL3doYXQtaXMtbmVpZ2hib3Jpc20iLCJleHAiOjE3ODAyMjA1ODQsImlhdCI6MTc3OTAxMDk4NH0.VeYRh_ewTbCM391u9USLwwTCcR-sWkUMuvxQ2fVkt40&amp;utm_medium=gift-link" target="_blank" class="brain-card brain-card-featured">
+      <a href="https://www.vox.com/the-highlight/486133/what-is-neighborism?view_token=eyJhbGciOiJIUzI1NiJ9.eyJpZCI6InpBdVA2SjhuaEUiLCJwIjoiL3RoZS1oaWdobGlnaHQvNDg2MTMzL3doYXQtaXMtbmVpZ2hib3Jpc20iLCJleHAiOjE3ODAyMjA1ODQsImlhdCI6MTc3OTAxMDk4NH0.VeYRh_ewTbCM391u9USLwwTCcR-sWkUMuvxQ2fVkt40&amp;utm_medium=gift-link" target="_blank" rel="noopener noreferrer" class="brain-card brain-card-featured">
         <span class="brain-featured-label">Start here</span>
         <span class="brain-topic">On neighborism</span>
         <span class="brain-source">Vox · The Highlight · 2026</span>
         <span class="brain-title">Why "neighborism" is having a moment</span>
-        <span class="brain-desc">Sara Radin on how everyday care between neighbors is becoming a quiet form of resistance — proximity as a resource, small acts of care as the foundation of resilient communities.</span>
+        <span class="brain-desc">Sara Radin on how everyday care between neighbors is becoming a quiet form of resistance, treating proximity as a resource and small acts of care as the foundation of resilient communities.</span>
         <span class="brain-arrow">Read →</span>
       </a>
 
-      <a href="https://thehappyurbanist.substack.com/p/community-is-easy-actually" target="_blank" class="brain-card">
+      <a href="https://thehappyurbanist.substack.com/p/community-is-easy-actually" target="_blank" rel="noopener noreferrer" class="brain-card">
         <span class="brain-topic">On belonging</span>
         <span class="brain-source">The Happy Urbanist · 2025</span>
         <span class="brain-title">Community is easy, actually</span>
-        <span class="brain-desc">Jon Jon Wesolowski makes the case that real community is convenient, not effortful — and that what feels like the cost of belonging is really the cost of the broken infrastructure around us.</span>
+        <span class="brain-desc">Jon Jon Wesolowski makes the case that real community is convenient rather than effortful, and that what feels like the cost of belonging is really the cost of the broken infrastructure around us.</span>
         <span class="brain-arrow">Read →</span>
       </a>
 
-      <a href="https://www.joanwestenberg.com/communities-are-not-fungible/" target="_blank" class="brain-card">
+      <a href="https://www.joanwestenberg.com/communities-are-not-fungible/" target="_blank" rel="noopener noreferrer" class="brain-card">
         <span class="brain-topic">On displacement</span>
         <span class="brain-source">Westenberg · 2026</span>
         <span class="brain-title">Communities are not fungible</span>
-        <span class="brain-desc">JA Westenberg on why displaced communities can't be rebuilt elsewhere — and the cost we ignore when planners and platforms treat people as interchangeable.</span>
+        <span class="brain-desc">JA Westenberg on why displaced communities can't be rebuilt elsewhere, and on the cost we ignore when planners and platforms treat people as interchangeable.</span>
         <span class="brain-arrow">Read →</span>
       </a>
 
-      <a href="https://thehappyurbanist.substack.com/p/we-need-pirates-philosophers-and" target="_blank" class="brain-card">
+      <a href="https://thehappyurbanist.substack.com/p/we-need-pirates-philosophers-and" target="_blank" rel="noopener noreferrer" class="brain-card">
         <span class="brain-topic">On showing up</span>
         <span class="brain-source">The Happy Urbanist · 2026</span>
         <span class="brain-title">We need Pirates, Philosophers, and Prophets</span>
@@ -1000,11 +1067,11 @@ LINKS
         <span class="brain-arrow">Read →</span>
       </a>
 
-      <a href="https://www.nclm.org/news-media/southern-city/defending-civic-trust-the-responsibility-of-local-leadership/" target="_blank" class="brain-card">
+      <a href="https://www.nclm.org/news-media/southern-city/defending-civic-trust-the-responsibility-of-local-leadership/" target="_blank" rel="noopener noreferrer" class="brain-card">
         <span class="brain-topic">On civic life</span>
         <span class="brain-source">Southern City (NCLM) · 2025</span>
         <span class="brain-title">Defending civic trust</span>
-        <span class="brain-desc">A practical case for transparent, two-way civic engagement — and why frustration and disagreement are signals to listen for, not threats to manage.</span>
+        <span class="brain-desc">A practical case for transparent, two-way civic engagement, and for treating frustration and disagreement as signals to listen for rather than threats to manage.</span>
         <span class="brain-arrow">Read →</span>
       </a>
 
@@ -1022,43 +1089,43 @@ LINKS
 
     <div class="resource-grid">
       <div class="res-section-header">City Services &amp; Utilities</div>
-      <a href="https://www.omahahotline.com" target="_blank" class="res">
+      <a href="https://www.omahahotline.com" target="_blank" rel="noopener noreferrer" class="res">
         <span class="res-name">Omaha Hotline</span>
         <span class="res-desc">Report abandoned vehicles, overgrown lots, code violations</span>
         <span class="res-link">omahahotline.com →</span>
       </a>
-      <a href="https://citycouncil.cityofomaha.org" target="_blank" class="res">
+      <a href="https://citycouncil.cityofomaha.org" target="_blank" rel="noopener noreferrer" class="res">
         <span class="res-name">City Council &amp; Agendas</span>
         <span class="res-desc">Find your district rep · Weekly agendas published Fridays · Meetings Tuesdays 2 PM · Anyone can attend</span>
         <span class="res-link">Current agenda →</span>
       </a>
-      <a href="https://planninghcd.cityofomaha.org/images/Neighborhood_Planning/2024_Where_To_Call_List_8.pdf" target="_blank" class="res">
+      <a href="https://planninghcd.cityofomaha.org/images/Neighborhood_Planning/2024_Where_To_Call_List_8.pdf" target="_blank" rel="noopener noreferrer" class="res">
         <span class="res-name">Where To Call Guide</span>
         <span class="res-desc">2024 Omaha neighborhood services reference: who to call for what</span>
         <span class="res-link">Download PDF →</span>
       </a>
 
-      <a href="https://www.wasteline.org" target="_blank" class="res">
+      <a href="https://www.wasteline.org" target="_blank" rel="noopener noreferrer" class="res">
         <span class="res-name">Wasteline</span>
         <span class="res-desc">Trash schedules, bulk disposal, recycling &amp; composting</span>
         <span class="res-link">wasteline.org →</span>
       </a>
-      <a href="https://www.mudomaha.com" target="_blank" class="res">
+      <a href="https://www.mudomaha.com" target="_blank" rel="noopener noreferrer" class="res">
         <span class="res-name">Metropolitan Utilities District</span>
         <span class="res-desc">Water and natural gas service</span>
         <span class="res-link">mudomaha.com →</span>
       </a>
-      <a href="https://www.oppd.com" target="_blank" class="res">
+      <a href="https://www.oppd.com" target="_blank" rel="noopener noreferrer" class="res">
         <span class="res-name">Omaha Public Power</span>
         <span class="res-desc">Electric service, outage reporting, energy assistance</span>
         <span class="res-link">oppd.com →</span>
       </a>
-      <a href="https://omahalibrary.org" target="_blank" class="res">
+      <a href="https://omahalibrary.org" target="_blank" rel="noopener noreferrer" class="res">
         <span class="res-name">Omaha Public Library</span>
         <span class="res-desc">Libraries, events, seed library, community programs</span>
         <span class="res-link">omahalibrary.org →</span>
       </a>
-      <a href="https://www.oneomaha.org" target="_blank" class="res">
+      <a href="https://www.oneomaha.org" target="_blank" rel="noopener noreferrer" class="res">
         <span class="res-name">One Omaha</span>
         <span class="res-desc">An independent neighborhood advocacy organization focused on equity and community voice</span>
         <span class="res-link">oneomaha.org →</span>
@@ -1071,17 +1138,17 @@ LINKS
 
 
       <div class="res-section-header">Community Support</div>
-      <a href="https://www.communityalliance.org" target="_blank" class="res">
+      <a href="https://www.communityalliance.org" target="_blank" rel="noopener noreferrer" class="res">
         <span class="res-name">Community Alliance</span>
         <span class="res-desc">Local mental health services, crisis support, and community programs for Omaha residents</span>
         <span class="res-link">communityalliance.org →</span>
       </a>
-      <a href="https://www.oneworldomaha.org" target="_blank" class="res">
+      <a href="https://www.oneworldomaha.org" target="_blank" rel="noopener noreferrer" class="res">
         <span class="res-name">OneWorld Community Health</span>
         <span class="res-desc">Affordable primary care, mental health, dental, and social services, multilingual staff, everyone welcome regardless of insurance or nationality</span>
         <span class="res-link">oneworldomaha.org →</span>
       </a>
-      <a href="https://freefarmsyndicate.org" target="_blank" class="res">
+      <a href="https://freefarmsyndicate.org" target="_blank" rel="noopener noreferrer" class="res">
         <span class="res-name">Free Farm</span>
         <span class="res-desc">Community-supported agriculture providing free, fresh produce</span>
         <span class="res-link">freefarmsyndicate.org →</span>
@@ -1098,17 +1165,17 @@ LINKS
     <h2>Your Vote Matters</h2>
     <p>Democracy works best when everyone participates. Whether you need to register, find your polling place, or get more involved in local civic life: here's where to start.</p>
     <div class="resource-grid" style="margin-top:20px;">
-      <a href="https://www.nebraska.gov/apps-sos-voter-registration/" target="_blank" class="res">
+      <a href="https://www.nebraska.gov/apps-sos-voter-registration/" target="_blank" rel="noopener noreferrer" class="res">
         <span class="res-name">Register to Vote</span>
         <span class="res-desc">Register, update your address, or check your registration status with the Nebraska Secretary of State</span>
         <span class="res-link">nebraska.gov →</span>
       </a>
-      <a href="https://www.votedouglascounty.com/pollingplace.aspx" target="_blank" class="res">
+      <a href="https://www.votedouglascounty.com/pollingplace.aspx" target="_blank" rel="noopener noreferrer" class="res">
         <span class="res-name">Find Your Polling Place</span>
         <span class="res-desc">Look up your polling location and sample ballot, Douglas County Election Commissioner</span>
         <span class="res-link">votedouglascounty.com →</span>
       </a>
-      <a href="https://www.lwvgo.org" target="_blank" class="res">
+      <a href="https://www.lwvgo.org" target="_blank" rel="noopener noreferrer" class="res">
         <span class="res-name">League of Women Voters, Greater Omaha</span>
         <span class="res-desc">Nonpartisan voter education, registration drives, candidate forums, and civic advocacy for the Omaha metro</span>
         <span class="res-link">lwvgo.org →</span>
@@ -1118,13 +1185,12 @@ LINKS
 </div>
 
 <!-- FOOTER -->
-<footer style="position:relative;overflow:hidden;"><img class="illus-asset" src="image_7.png" style="opacity:0.28;bottom:-8%;right:-1%;width:32%;max-width:300px;" aria-hidden="true">
+<footer style="position:relative;overflow:hidden;"><img class="illus-asset" src="image_7.png" style="opacity:0.28;bottom:-8%;right:-1%;width:32%;max-width:300px;" alt="" aria-hidden="true">
   <div class="footer-inner">
     <span class="footer-logo">Grammercy Park Collective</span>
     <p class="footer-sub">A neighborhood collective in Omaha, NE</p>
     <div class="footer-links">
       <a href="#events">Events</a>
-      <a href="#contest">Design Contest</a>
       <a href="#advocacy">What We Do</a>
       <a href="#vote">Vote</a>
       <a href="#involved">Get Involved</a>
@@ -1133,9 +1199,9 @@ LINKS
       <a href="mailto:gramercyparkoma@gmail.com">Email</a>
     </div>
     <div class="footer-bottom">
-      <span class="footer-copy">© 2022–2026 Grammercy Park Neighborhood Collective · Omaha, NE</span>
+      <span class="footer-copy">© 2022 to 2026 Grammercy Park Neighborhood Collective · Omaha, NE</span>
 <span class="footer-copy" style="display:block;margin-top:6px;font-size:12px;color:var(--muted);"><i>Thanks to Dario</i></span>
-      <a href="https://www.facebook.com/people/Grammercy-Park-Collective/61574691107601/" target="_blank" style="font-size:13px;font-weight:600;color:var(--muted);text-decoration:none;transition:color 0.15s;" onmouseover="this.style.color='#3a7172'" onmouseout="this.style.color='#727272'">Facebook</a>
+      <a href="https://www.facebook.com/people/Grammercy-Park-Collective/61574691107601/" target="_blank" rel="noopener noreferrer" class="link-muted">Facebook</a>
     </div>
   </div>
 </footer>
@@ -1196,10 +1262,10 @@ LINKS
 <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 <script>
-  // ANNOUNCEMENT BANNER — dismiss + remember
-  // To re-show banner after changes: bump the key from 'banner-v1' to 'banner-v2', etc.
+  // ANNOUNCEMENT BANNER: dismiss + remember
+  // To re-show banner after changes: bump the key from 'banner-v2' to 'banner-v3', etc.
   (function() {
-    var BANNER_KEY = 'banner-v1';
+    var BANNER_KEY = 'banner-v2';
     var banner = document.getElementById('banner');
     var closeBtn = document.getElementById('bannerClose');
     if (!banner || !closeBtn) return;
@@ -1209,7 +1275,7 @@ LINKS
         banner.classList.add('hidden');
         document.body.classList.remove('has-banner');
       }
-    } catch (e) { /* localStorage blocked — banner just stays visible */ }
+    } catch (e) { /* localStorage blocked, banner just stays visible */ }
 
     closeBtn.addEventListener('click', function() {
       banner.classList.add('hidden');
