@@ -157,6 +157,10 @@ REMOVED SEPT 2026
   }
 
   .banner-cta:hover { background: rgba(255,255,255,0.32); }
+  button.banner-cta { font-family: inherit; border: none; cursor: pointer; }
+  .banner-cta-alt { background: none; border: 1px solid rgba(255,255,255,0.45); }
+  .banner-cta-alt:hover { background: rgba(255,255,255,0.18); }
+  @media (max-width: 580px) { .banner-cta-alt { display: none; } }
 
   .banner-close {
     background: none;
@@ -176,6 +180,71 @@ REMOVED SEPT 2026
   /* When banner is showing, push everything down */
   body.has-banner nav { top: var(--banner-h); }
   body.has-banner #home { padding-top: calc(62px + var(--banner-h)); }
+
+  /* YARD SALE MODAL */
+  .modal-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    background: rgba(22,19,15,0.55);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+  .modal-backdrop[hidden] { display: none; }
+
+  .modal {
+    background: var(--cream);
+    border: 2px solid var(--ink);
+    border-radius: 12px;
+    max-width: 420px;
+    width: 100%;
+    padding: 28px 28px 26px;
+    position: relative;
+    box-shadow: 0 18px 40px rgba(0,0,0,0.25);
+  }
+
+  .modal { max-height: calc(100vh - 40px); overflow-y: auto; }
+  .modal h2 { font-size: 24px; margin-bottom: 4px; }
+  .modal .modal-when { font-weight: 700; color: var(--teal); margin-bottom: 4px; font-size: 15px; }
+  .modal .modal-hours { font-size: 14px; color: var(--muted); margin-bottom: 16px; }
+  .modal p { font-size: 16px; margin-bottom: 16px; }
+  .modal .modal-actions { display: flex; flex-direction: column; gap: 8px; margin-top: 18px; }
+  .modal .btn { width: 100%; }
+
+  .modal-area { margin-bottom: 14px; }
+  .modal-area h3 {
+    font-family: var(--font-b);
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--teal);
+    margin-bottom: 6px;
+    padding-bottom: 4px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .modal-area ul { list-style: none; margin: 0; padding: 0; }
+  .modal-area li { font-size: 15px; font-weight: 600; padding: 3px 0; }
+  .modal-area li span { font-weight: 400; color: var(--muted); font-size: 13px; }
+  .modal-foot { font-size: 13px; color: var(--muted); margin: 0; }
+
+  .modal-close {
+    position: absolute;
+    top: 8px; right: 10px;
+    background: none; border: none;
+    font-size: 22px; line-height: 1;
+    color: var(--muted);
+    cursor: pointer;
+    padding: 6px 8px;
+  }
+  .modal-close:hover { color: var(--ink); }
+  .modal-close:focus-visible,
+  .modal .btn:focus-visible { outline: 3px solid var(--teal); outline-offset: 2px; }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .modal { animation: modal-in 0.22s ease-out; }
+    @keyframes modal-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+  }
 
   /* NAV */
   nav {
@@ -789,15 +858,16 @@ REMOVED SEPT 2026
 <!-- BANNER ROTATION
      The banner should carry whatever has the nearest deadline. To rotate:
        1. Comment out the active block below, uncomment the next one.
-       2. Bump BANNER_KEY at the bottom of the file (banner-v2 -> banner-v3),
+       2. Bump BANNER_KEY at the bottom of the file (banner-v3 -> banner-v4),
           or people who dismissed the last banner will never see the new one.
      Swap dates: yard sale runs until Sept 13. Cleanup until Oct 17. -->
 
 <!-- ACTIVE: yard sale (retire after September 13) -->
 <div id="banner" class="banner">
   <div class="banner-inner">
-    <span class="banner-text">🏷️ <strong class="banner-new">Sept 11 to 13: </strong>Neighborhood yard sales. Sign up to sell.</span>
-    <a href="https://forms.gle/jyCK3T2BpLALCVn29" target="_blank" rel="noopener noreferrer" class="banner-cta">Sign up →</a>
+    <span class="banner-text">🏷️ <strong class="banner-new">Sept 11 to 13: </strong>Neighborhood yard sales, all across Grammercy Park.</span>
+    <button type="button" class="banner-cta" id="ysOpen">See the addresses →</button>
+    <a href="https://forms.gle/jyCK3T2BpLALCVn29" target="_blank" rel="noopener noreferrer" class="banner-cta banner-cta-alt">Sign up to sell →</a>
     <button class="banner-close" id="bannerClose" aria-label="Dismiss" type="button">✕</button>
   </div>
 </div>
@@ -822,6 +892,42 @@ REMOVED SEPT 2026
   </div>
 </div>
 -->
+
+<!-- YARD SALE MODAL
+     Shows once per visitor, and stops showing by itself after September 13.
+     To retire it early, delete this block and the matching script at the bottom. -->
+<div class="modal-backdrop" id="ysBackdrop" hidden>
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="ysTitle">
+    <button class="modal-close" id="ysClose" type="button" aria-label="Close">✕</button>
+    <h2 id="ysTitle">Neighborhood yard sales</h2>
+    <p class="modal-when">Friday to Sunday, September 11 to 13</p>
+    <p class="modal-hours">All houses set their own hours. Most are open 9 am to 3 pm.</p>
+
+    <div class="modal-area">
+      <h3>South of NW Radial</h3>
+      <ul>
+        <li>2031 N 48th Ave <span>Friday, Saturday, Sunday</span></li>
+        <li>2003 N 48th Ave</li>
+        <li>2007 N 48th Ave</li>
+        <li>50th &amp; Hamilton</li>
+      </ul>
+    </div>
+
+    <div class="modal-area">
+      <h3>North of NW Radial</h3>
+      <ul>
+        <li>5039 Pratt St</li>
+        <li>2817 N 49th Ave</li>
+      </ul>
+    </div>
+
+    <p class="modal-foot">Not listed? <a href="mailto:gramercyparkoma@gmail.com?subject=Add%20me%20to%20the%20yard%20sale%20list" class="link-teal">Email us</a> and we'll add you.</p>
+
+    <div class="modal-actions">
+      <a href="https://forms.gle/jyCK3T2BpLALCVn29" target="_blank" rel="noopener noreferrer" class="btn btn-sage">I want to sell →</a>
+    </div>
+  </div>
+</div>
 
 <!-- NAV -->
 <nav>
@@ -875,7 +981,8 @@ REMOVED SEPT 2026
     <div class="card card-featured">
       <span class="label">In Person · September 11 to 13</span>
       <h3>Community Yard Sales</h3>
-      <p class="dark">A multi-house sale across the whole neighborhood, Friday through Sunday. Doors open at 9:00 AM each day, though individual houses set their own hours and some wrap up early. Selling? Sign up so we know who's taking part and can help get the word out.</p>
+      <p class="dark">A multi-house sale across Grammercy Park, the neighborhood between Benson and Dundee, east of Country Club. Friday through Sunday, starting at 9:00 AM each day, though individual houses set their own hours and some wrap up early. Look for signs in the yards.</p>
+      <p>Selling? Sign up so we know who's taking part and can help get the word out.</p>
       <a href="https://forms.gle/jyCK3T2BpLALCVn29" target="_blank" rel="noopener noreferrer" class="btn btn-sage btn-sm">Add my house to the sale →</a>
     </div>
 
@@ -883,9 +990,9 @@ REMOVED SEPT 2026
     <div class="card card-featured">
       <span class="label">In Person · Saturday, October 17</span>
       <h3>City Fall Cleanup</h3>
-      <p class="dark">The City's Fall Cleanup comes to our neighborhood on Saturday, October 17, from 9:00 am to 2:00 pm. Bring the oversized things that don't fit in your cart: furniture, appliances, carpet, lumber. It's free and open to all households.</p>
-      <p>We're working on hosting the site at our usual location, Waypoint Church's parking lot. That isn't confirmed yet, so check back here and we'll post the location the moment we have it.</p>
-      <p><b></b>Wherever it lands, we'll need volunteers from 8:30 am to 2:30 pm. Gloves, safety vests, water and snacks are provided, and you're welcome for the whole day or an hour of it. Sign up now and we'll send you the details once the site is set.</p></b>
+      <p class="dark">The City's Fall Cleanup comes to our neighborhood on Saturday, October 17, from 9:00 am to 2:00 pm. Bring the oversized things that don't fit in your cart: furniture, appliances, carpet, lumber. It's free and open to any City of Omaha household.</p>
+      <p>We're working on hosting the site at Waypoint Church, 1313 N 48th Ave. That isn't confirmed yet, so check back here and we'll post the location the moment we have it.</p>
+      <p>Wherever it lands, we'll need volunteers from 8:30 am to 2:30 pm. Gloves, safety vests, water and snacks are provided, and you're welcome for the whole day or an hour of it. Sign up now and we'll send you the details once the site is set.</p>
       <div class="pill-row pill-row-tight">
         <a href="https://www.wasteline.org/general-information/fall-cleanup/" target="_blank" rel="noopener noreferrer" class="pill">See what's accepted →</a>
       </div>
@@ -897,8 +1004,8 @@ REMOVED SEPT 2026
     <div class="card">
       <span class="label">In Person · Saturday, October 24</span>
       <h3>Fall Fest Block Party</h3>
-      <p>Our annual block party is back. We're tentatively planning for Saturday, October 24, with Sunday the 25th as the rain date. Both are still TBC while we sort out the details, so watch this page before you make plans around it.</p>
-      <p>Tell us what you'd like to pitch in on, whether that's setup, activities, food, music or getting the word out, and we'll be in touch.</p>
+      <p>Our annual block party is back. We're holding Saturday, October 24, with Sunday the 25th as the rain date. Both are still tentative while we sort out the details, so watch this page before you make plans around it.</p>
+      <p>Tell us what you'd like to pitch in on, whether that's setup, food, music or getting the word out, and we'll be in touch.</p>
       <!-- SWAP: replace the mailto below with the planning form URL when it exists -->
       <a href="mailto:gramercyparkoma@gmail.com?subject=Helping%20plan%20Fall%20Fest" class="btn btn-sage btn-sm">Email us to help plan →</a>
     </div>
@@ -1262,10 +1369,65 @@ REMOVED SEPT 2026
 <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 <script>
+  // YARD SALE MODAL
+  //   - opens by itself once per visitor
+  //   - reopens any time from the banner button
+  //   - stops opening by itself after September 13
+  (function () {
+    var KEY = 'yardsale-2026';
+    var LAST_DAY = new Date(2026, 8, 14);          // Sept 14, the morning after
+    var backdrop = document.getElementById('ysBackdrop');
+    var closeBtn = document.getElementById('ysClose');
+    var openBtn  = document.getElementById('ysOpen');
+    if (!backdrop || !closeBtn) return;
+
+    var lastFocus = null;
+
+    function open() {
+      lastFocus = document.activeElement;
+      backdrop.hidden = false;
+      document.body.style.overflow = 'hidden';
+      closeBtn.focus();
+      document.addEventListener('keydown', onKey);
+    }
+
+    function close() {
+      backdrop.hidden = true;
+      document.body.style.overflow = '';
+      document.removeEventListener('keydown', onKey);
+      try { localStorage.setItem(KEY, 'seen'); } catch (e) {}
+      if (lastFocus && lastFocus.focus) lastFocus.focus();
+    }
+
+    function onKey(e) {
+      if (e.key === 'Escape') { close(); return; }
+      if (e.key !== 'Tab') return;
+      var f = backdrop.querySelectorAll('a[href], button');
+      if (!f.length) return;
+      var first = f[0], last = f[f.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    }
+
+    closeBtn.addEventListener('click', close);
+    backdrop.addEventListener('click', function (e) { if (e.target === backdrop) close(); });
+
+    // banner button reopens it, every time, no matter what is stored
+    if (openBtn) openBtn.addEventListener('click', open);
+
+    // automatic first showing
+    var expired = new Date() >= LAST_DAY;
+    var seen = false;
+    try { seen = localStorage.getItem(KEY) === 'seen'; } catch (e) {}
+    if (!expired && !seen) setTimeout(open, 900);
+  })();
+</script>
+
+<script>
   // ANNOUNCEMENT BANNER: dismiss + remember
   // To re-show banner after changes: bump the key from 'banner-v2' to 'banner-v3', etc.
   (function() {
-    var BANNER_KEY = 'banner-v2';
+    var BANNER_KEY = 'banner-v3';
     var banner = document.getElementById('banner');
     var closeBtn = document.getElementById('bannerClose');
     if (!banner || !closeBtn) return;
