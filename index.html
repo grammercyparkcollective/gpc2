@@ -23,7 +23,7 @@
 
 EVENTS
   Yard sale (Sept 11-13):   https://forms.gle/jyCK3T2BpLALCVn29
-  City Fall Cleanup (Oct 17, Waypoint Church, 1313 N 48th Ave, drop-off 9-2, volunteers 8:30-2:30)
+  City Fall Cleanup (Oct 17, Waypoint Church parking lot, 1313 N 48th Ave, drop-off 9-2, volunteers 8:30-2:30)
       Volunteer form:       none yet - button falls back to email. Search "SWAP:" to replace.
       What's accepted:      https://www.wasteline.org/general-information/fall-cleanup/
   Fall Fest Block Party (tentative: Sat Oct 24, rain date Sun Oct 25)
@@ -181,15 +181,11 @@ REMOVED SEPT 2026
   body.has-banner nav { top: var(--banner-h); }
   body.has-banner #home { padding-top: calc(62px + var(--banner-h)); }
 
-  /* YARD SALE MODAL */
+  /* VOLUNTEER MODAL */
   .modal-backdrop {
-    position: fixed;
-    inset: 0;
-    z-index: 200;
+    position: fixed; inset: 0; z-index: 200;
     background: rgba(22,19,15,0.55);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: flex; align-items: center; justify-content: center;
     padding: 20px;
   }
   .modal-backdrop[hidden] { display: none; }
@@ -198,44 +194,30 @@ REMOVED SEPT 2026
     background: var(--cream);
     border: 2px solid var(--ink);
     border-radius: 12px;
-    max-width: 420px;
-    width: 100%;
+    max-width: 440px; width: 100%;
     padding: 28px 28px 26px;
     position: relative;
+    max-height: calc(100vh - 40px);
+    overflow-y: auto;
     box-shadow: 0 18px 40px rgba(0,0,0,0.25);
   }
 
-  .modal { max-height: calc(100vh - 40px); overflow-y: auto; }
-  .modal h2 { font-size: 24px; margin-bottom: 4px; }
-  .modal .modal-when { font-weight: 700; color: var(--teal); margin-bottom: 4px; font-size: 15px; }
-  .modal .modal-hours { font-size: 14px; color: var(--muted); margin-bottom: 16px; }
-  .modal p { font-size: 16px; margin-bottom: 16px; }
-  .modal .modal-actions { display: flex; flex-direction: column; gap: 8px; margin-top: 18px; }
-  .modal .btn { width: 100%; }
+  .modal h2 { font-size: 24px; margin-bottom: 14px; }
+  .modal > p { font-size: 16px; margin-bottom: 18px; }
 
-  .modal-area { margin-bottom: 14px; }
-  .modal-area h3 {
-    font-family: var(--font-b);
-    font-size: 13px;
-    font-weight: 700;
-    color: var(--teal);
-    margin-bottom: 6px;
-    padding-bottom: 4px;
-    border-bottom: 1px solid var(--rule);
-  }
-  .modal-area ul { list-style: none; margin: 0; padding: 0; }
-  .modal-area li { font-size: 15px; font-weight: 600; padding: 3px 0; }
-  .modal-area li span { font-weight: 400; color: var(--muted); font-size: 13px; }
-  .modal-foot { font-size: 13px; color: var(--muted); margin: 0; }
+  .modal-job { padding: 14px 0; border-top: 1px solid var(--rule); }
+  .modal-job h3 { font-family: var(--font-b); font-size: 17px; font-weight: 700; margin-bottom: 2px; }
+  .modal-job .when { font-size: 14px; font-weight: 700; color: var(--teal); margin-bottom: 6px; }
+  .modal-job p { font-size: 15px; margin-bottom: 10px; line-height: 1.45; }
+  .modal-job .btn { width: 100%; }
+
+  .modal-foot { font-size: 13px; color: var(--muted); margin: 16px 0 0; padding-top: 14px; border-top: 1px solid var(--rule); }
 
   .modal-close {
-    position: absolute;
-    top: 8px; right: 10px;
+    position: absolute; top: 8px; right: 10px;
     background: none; border: none;
-    font-size: 22px; line-height: 1;
-    color: var(--muted);
-    cursor: pointer;
-    padding: 6px 8px;
+    font-size: 22px; line-height: 1; color: var(--muted);
+    cursor: pointer; padding: 6px 8px;
   }
   .modal-close:hover { color: var(--ink); }
   .modal-close:focus-visible,
@@ -862,26 +844,15 @@ REMOVED SEPT 2026
           or people who dismissed the last banner will never see the new one.
      Swap dates: yard sale runs until Sept 13. Cleanup until Oct 17. -->
 
-<!-- ACTIVE: yard sale (retire after September 13) -->
+<!-- ACTIVE: city cleanup (retire after October 17) -->
 <div id="banner" class="banner">
   <div class="banner-inner">
-    <span class="banner-text">🏷️ <strong class="banner-new">Sept 11 to 13: </strong>Neighborhood yard sales, all across Grammercy Park.</span>
-    <button type="button" class="banner-cta" id="ysOpen">See the addresses →</button>
-    <a href="https://forms.gle/jyCK3T2BpLALCVn29" target="_blank" rel="noopener noreferrer" class="banner-cta banner-cta-alt">Sign up to sell →</a>
+    <span class="banner-text">🧤 <strong class="banner-new">Oct 17: </strong>City Fall Cleanup. Come lend a hand.</span>
+    <button type="button" class="banner-cta" id="volOpen">Volunteer →</button>
+    <a href="https://forms.gle/NuDUXKExipPefgir9" target="_blank" rel="noopener noreferrer" class="banner-cta banner-cta-alt">Take the survey →</a>
     <button class="banner-close" id="bannerClose" aria-label="Dismiss" type="button">✕</button>
   </div>
 </div>
-
-<!-- NEXT UP: city cleanup. Uncomment on September 14, and swap the href
-     for the volunteer form once you have one.
-<div id="banner" class="banner">
-  <div class="banner-inner">
-    <span class="banner-text">🧤 <strong class="banner-new">Oct 17: </strong>City Fall Cleanup. We need volunteers.</span>
-    <a href="mailto:gramercyparkoma@gmail.com?subject=Volunteering%20at%20the%20Fall%20Cleanup" class="banner-cta">Volunteer →</a>
-    <button class="banner-close" id="bannerClose" aria-label="Dismiss" type="button">✕</button>
-  </div>
-</div>
--->
 
 <!-- AFTER THAT: back to the text thread, which grows the list for next time.
 <div id="banner" class="banner">
@@ -893,39 +864,31 @@ REMOVED SEPT 2026
 </div>
 -->
 
-<!-- YARD SALE MODAL
-     Shows once per visitor, and stops showing by itself after September 13.
-     To retire it early, delete this block and the matching script at the bottom. -->
-<div class="modal-backdrop" id="ysBackdrop" hidden>
-  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="ysTitle">
-    <button class="modal-close" id="ysClose" type="button" aria-label="Close">✕</button>
-    <h2 id="ysTitle">Neighborhood yard sales</h2>
-    <p class="modal-when">Friday to Sunday, September 11 to 13</p>
-    <p class="modal-hours">All houses set their own hours. Most are open 9 am to 3 pm.</p>
-
-    <div class="modal-area">
-      <h3>South of NW Radial</h3>
-      <ul>
-        <li>2031 N 48th Ave <span>Friday, Saturday, Sunday</span></li>
-        <li>2003 N 48th Ave</li>
-        <li>2007 N 48th Ave</li>
-        <li>50th &amp; Hamilton</li>
-      </ul>
+<!-- VOLUNTEER MODAL
+     Opens once per visitor, reopens any time from the banner button,
+     and stops opening by itself after October 25. -->
+<div class="modal-backdrop" id="volBackdrop" hidden>
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="volTitle">
+    <button class="modal-close" id="volClose" type="button" aria-label="Close">✕</button>
+    <h2 id="volTitle">Upcoming events</h2>
+    <div class="modal-job">
+      <h3>City Fall Cleanup</h3>
+      <p class="when">Saturday, October 17</p>
+      <p>Waypoint Church parking lot, 1313 N 48th Ave.<br>
+      <strong>Open to the public 9 am to 2 pm.</strong><br>
+      <strong>Volunteers needed 8:30 am to 2:30 pm.</strong><br>
+      Gloves, vests, snacks and drinks provided.</p>
+      <a href="mailto:gramercyparkoma@gmail.com?subject=Volunteering%20at%20the%20Fall%20Cleanup" class="btn btn-sage btn-sm">Count me in →</a>
     </div>
 
-    <div class="modal-area">
-      <h3>North of NW Radial</h3>
-      <ul>
-        <li>5039 Pratt St</li>
-        <li>2817 N 49th Ave</li>
-      </ul>
+    <div class="modal-job">
+      <h3>Fall Fest Block Party</h3>
+      <p class="when">Saturday, October 24, rain date the 25th</p>
+      <p>A few hours of neighbors hanging out together. Have an idea for a new activity? Email us.</p>
+      <a href="mailto:gramercyparkoma@gmail.com?subject=Helping%20plan%20Fall%20Fest" class="btn btn-sage btn-sm">I'm in, let's plan it →</a>
     </div>
 
-    <p class="modal-foot">Not listed? <a href="mailto:gramercyparkoma@gmail.com?subject=Add%20me%20to%20the%20yard%20sale%20list" class="link-teal">Email us</a> and we'll add you.</p>
-
-    <div class="modal-actions">
-      <a href="https://forms.gle/jyCK3T2BpLALCVn29" target="_blank" rel="noopener noreferrer" class="btn btn-sage">I want to sell →</a>
-    </div>
+    <p class="modal-foot">Can't make either one? <a href="https://forms.gle/NuDUXKExipPefgir9" target="_blank" rel="noopener noreferrer" class="link-teal">Tell us what you want to see for our neighborhood</a>. Anonymous, five minutes or less.</p>
   </div>
 </div>
 
@@ -977,22 +940,12 @@ REMOVED SEPT 2026
     <span class="label">Events &amp; Meetings</span>
     <h2>What's Coming Up</h2>
 
-    <!-- UPDATE: Remove after September 13 -->
-    <div class="card card-featured">
-      <span class="label">In Person · September 11 to 13</span>
-      <h3>Community Yard Sales</h3>
-      <p class="dark">A multi-house sale across Grammercy Park, the neighborhood between Benson and Dundee, east of Country Club. Friday through Sunday, starting at 9:00 AM each day, though individual houses set their own hours and some wrap up early. Look for signs in the yards.</p>
-      <p>Selling? Sign up so we know who's taking part and can help get the word out.</p>
-      <a href="https://forms.gle/jyCK3T2BpLALCVn29" target="_blank" rel="noopener noreferrer" class="btn btn-sage btn-sm">Add my house to the sale →</a>
-    </div>
-
     <!-- UPDATE: Remove after October 17 -->
     <div class="card card-featured">
       <span class="label">In Person · Saturday, October 17</span>
       <h3>City Fall Cleanup</h3>
-      <p class="dark">The City's Fall Cleanup comes to our neighborhood on Saturday, October 17, from 9:00 am to 2:00 pm. Bring the oversized things that don't fit in your cart: furniture, appliances, carpet, lumber. It's free and open to any City of Omaha household.</p>
-      <p>We're working on hosting the site at Waypoint Church, 1313 N 48th Ave. That isn't confirmed yet, so check back here and we'll post the location the moment we have it.</p>
-      <p>Wherever it lands, we'll need volunteers from 8:30 am to 2:30 pm. Gloves, safety vests, water and snacks are provided, and you're welcome for the whole day or an hour of it. Sign up now and we'll send you the details once the site is set.</p>
+      <p class="dark">The City's Fall Cleanup comes to our neighborhood on Saturday, October 17, from 9:00 am to 2:00 pm, at the <strong>Waypoint Church parking lot, 1313 N 48th Ave</strong>. Bring the oversized things that don't fit in your cart: furniture, appliances, carpet, lumber. It's free and open to any City of Omaha household, and no signup is needed to drop things off.</p>
+      <p>We do need volunteers, from 8:30 am to 2:30 pm. Gloves, safety vests, water and snacks are provided, and you're welcome for the whole day or an hour of it.</p>
       <div class="pill-row pill-row-tight">
         <a href="https://www.wasteline.org/general-information/fall-cleanup/" target="_blank" rel="noopener noreferrer" class="pill">See what's accepted →</a>
       </div>
@@ -1005,7 +958,6 @@ REMOVED SEPT 2026
       <span class="label">In Person · Saturday, October 24</span>
       <h3>Fall Fest Block Party</h3>
       <p>Our annual block party is back. We're holding Saturday, October 24, with Sunday the 25th as the rain date. Both are still tentative while we sort out the details, so watch this page before you make plans around it.</p>
-      <p>Tell us what you'd like to pitch in on, whether that's setup, food, music or getting the word out, and we'll be in touch.</p>
       <!-- SWAP: replace the mailto below with the planning form URL when it exists -->
       <a href="mailto:gramercyparkoma@gmail.com?subject=Helping%20plan%20Fall%20Fest" class="btn btn-sage btn-sm">Email us to help plan →</a>
     </div>
@@ -1086,6 +1038,15 @@ REMOVED SEPT 2026
 
     <p>If you'd rather support us with money than hours, that's welcome too, and it's always free will, pay what you want. It covers the real costs of doing this: printing flyers, supplies for events, mailing things to people who aren't online. Nothing we do is ever gated behind giving, and plenty of the people who show up the most have never given a cent. <a href="mailto:gramercyparkoma@gmail.com?subject=Supporting%20the%20Collective" class="link-teal">Get in touch</a> if you'd like to chip in.</p>
 
+    <!-- UPDATE: Remove or swap when the survey closes -->
+    <div class="connector-box stack-lg">
+      <p class="lead">Tell us what you think</p>
+      <p>Our community feedback survey asks what's working on your block, what you'd change, and what you'd say to the Mayor if you had the chance. It takes five minutes or less. Responses are anonymous: we ask for an email only to keep out spam, and it's never attached to your answers or shared.</p>
+      <div class="stack">
+        <a href="https://forms.gle/NuDUXKExipPefgir9" target="_blank" rel="noopener noreferrer" class="btn btn-sage btn-sm">Take the Survey →</a>
+      </div>
+    </div>
+
     <div class="connector-box stack-lg">
       <p class="lead">One form, and you're in</p>
       <p>It takes a couple of minutes and asks how you'd like to hear from us. It's also where you tell us if you want to be a Block Connector, help plan events, or join our email newsletter.</p>
@@ -1099,15 +1060,6 @@ REMOVED SEPT 2026
       <p>GPC is non-hierarchical: we go where the community leads us. Block Connectors are how we make that real. You'd be our point person on your block. We send you updates, resources, and things worth sharing, and you get them to your neighbors however works best for you. A text thread, a flyer on a door, a conversation over the fence.</p>
       <p><strong>No meetings required.</strong> Just a neighbor who gives a damn. Say yes to it on the form above.</p>
       <p style="font-style:italic; margin-top:10px;">Just moved here? It's the fastest way to meet the people on your block.</p>
-    </div>
-
-    <!-- UPDATE: Remove or swap when the survey closes -->
-    <div class="connector-box stack">
-      <p class="lead">Not ready to join? Tell us what you think instead</p>
-      <p>Our community feedback survey asks what's working on your block, what you'd change, and what you'd say to the Mayor if you had the chance. Responses are anonymous. We ask for an email only to keep out spam, and it's never attached to your answers or shared. Set aside ten minutes or so; there's a lot of room to write.</p>
-      <div class="stack">
-        <a href="https://forms.gle/NuDUXKExipPefgir9" target="_blank" rel="noopener noreferrer" class="btn btn-ghost btn-sm">Take the Survey →</a>
-      </div>
     </div>
 
     <p class="center-note">Questions first? <a href="mailto:gramercyparkoma@gmail.com" class="link-teal">Email us</a> or find us on <a href="https://www.facebook.com/people/Grammercy-Park-Collective/61574691107601/" target="_blank" rel="noopener noreferrer" class="link-teal">Facebook</a>.</p>
@@ -1368,17 +1320,19 @@ REMOVED SEPT 2026
 </script>
 <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
+
+
 <script>
-  // YARD SALE MODAL
+  // VOLUNTEER MODAL
   //   - opens by itself once per visitor
-  //   - reopens any time from the banner button
-  //   - stops opening by itself after September 13
+  //   - reopens any time from the banner Volunteer button
+  //   - stops opening by itself after October 25
   (function () {
-    var KEY = 'yardsale-2026';
-    var LAST_DAY = new Date(2026, 8, 14);          // Sept 14, the morning after
-    var backdrop = document.getElementById('ysBackdrop');
-    var closeBtn = document.getElementById('ysClose');
-    var openBtn  = document.getElementById('ysOpen');
+    var KEY = 'volunteer-fall-2026';
+    var LAST_DAY = new Date(2026, 9, 26);     // Oct 26, the day after the rain date
+    var backdrop = document.getElementById('volBackdrop');
+    var closeBtn = document.getElementById('volClose');
+    var openBtn  = document.getElementById('volOpen');
     if (!backdrop || !closeBtn) return;
 
     var lastFocus = null;
@@ -1390,7 +1344,6 @@ REMOVED SEPT 2026
       closeBtn.focus();
       document.addEventListener('keydown', onKey);
     }
-
     function close() {
       backdrop.hidden = true;
       document.body.style.overflow = '';
@@ -1398,7 +1351,6 @@ REMOVED SEPT 2026
       try { localStorage.setItem(KEY, 'seen'); } catch (e) {}
       if (lastFocus && lastFocus.focus) lastFocus.focus();
     }
-
     function onKey(e) {
       if (e.key === 'Escape') { close(); return; }
       if (e.key !== 'Tab') return;
@@ -1411,11 +1363,8 @@ REMOVED SEPT 2026
 
     closeBtn.addEventListener('click', close);
     backdrop.addEventListener('click', function (e) { if (e.target === backdrop) close(); });
-
-    // banner button reopens it, every time, no matter what is stored
     if (openBtn) openBtn.addEventListener('click', open);
 
-    // automatic first showing
     var expired = new Date() >= LAST_DAY;
     var seen = false;
     try { seen = localStorage.getItem(KEY) === 'seen'; } catch (e) {}
@@ -1427,7 +1376,7 @@ REMOVED SEPT 2026
   // ANNOUNCEMENT BANNER: dismiss + remember
   // To re-show banner after changes: bump the key from 'banner-v2' to 'banner-v3', etc.
   (function() {
-    var BANNER_KEY = 'banner-v3';
+    var BANNER_KEY = 'banner-v4';
     var banner = document.getElementById('banner');
     var closeBtn = document.getElementById('bannerClose');
     if (!banner || !closeBtn) return;
